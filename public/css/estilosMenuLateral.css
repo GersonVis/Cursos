@@ -1,0 +1,26 @@
+#menuLateral{
+    width: 250px;
+}
+#menuLateralAbajo{
+   overflow: hidden;
+}
+#menuLateralArriba{
+    height: 70%;
+   
+}
+.indicador.textoTipoA{
+    font-size: 0.6EM;
+}
+#menu{
+    align-items: center;
+    margin: 1em 0 0 0;
+}
+.opcionMenu{
+    width: 90%;
+    height: 40px;
+}
+.opcionMenu a{
+   height: 80%;
+   margin: 0;
+   text-align: center;
+}

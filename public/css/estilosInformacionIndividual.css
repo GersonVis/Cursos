@@ -1,0 +1,93 @@
+#informacionIndividual {
+    width: 900px;
+    height: 550px;
+    box-shadow: 0px 0px 33px #C4C4C4;
+    overflow: hidden;
+    visibility: hidden;
+}
+
+.parteDeInformacion {
+    width: 20%;
+    height: 100%;
+    min-width: 250px;
+}
+
+#menuIndividuo {
+    width: 30%;
+    min-width: 280px;
+}
+
+#menuIndividuo li {
+    margin: 0 0 0 0;
+}
+
+.individuoDivision  {
+    height: 100%;
+}
+.individuoDivisionInformacion{
+    width: 100%;
+    overflow: auto;
+}
+
+.subMenuIndividuo {}
+
+#contenedorSubMenu {
+    width: 100%;
+    justify-content: initial;
+}
+
+.subMenu {
+    margin-top: 2em;
+    margin-left: 1em;
+    font-weight: bold;
+    font-size: 1.5em;
+    justify-content: flex-start;
+}
+
+.opcionIndividuo {
+    margin: 0;
+    font-weight: normal;
+    font-size: 1em;
+    height: 35px;
+    transition: background-color 1s linear;
+    width: 90%;
+}
+
+.opcionIndividuo p {
+    margin-left: 1em;
+}
+
+.subMenu.opcionIndividuo:hover {
+    background-color: #CDEDF4;
+}
+
+.botonCerrar {
+    width: 130px;
+    height: 33px;
+    right: 10px;
+    top: 10px;
+    z-index: 1;
+}
+
+.botonCerrar::after {
+    content: "";
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: .5em;
+ 
+}
+.botonCerrar:hover::after{
+   border: 1px  solid;
+}
+#informacionIndividuoDerecha{
+    height: 100%;
+    overflow: auto;
+    width: 100%;
+}
+#listaDatosIndividuo{
+    padding-top: 0px;
+    padding-bottom: 20px;
+}

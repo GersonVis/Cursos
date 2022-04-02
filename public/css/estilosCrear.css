@@ -1,0 +1,21 @@
+#sectionCrearInstructor{
+    visibility: hidden;
+}
+#sectionCrear{
+    width: 900px;
+    height: 550px;
+    box-shadow: 0px 0px 33px #C4C4C4;
+    overflow: hidden;
+}
+#botonCerrarCrear{
+    
+}
+.divAbajoCrearInstructor{
+    width: 100%;
+    height: 10%;
+}
+.formCrear{
+    width: 100%;
+    height: 75%;
+    overflow: auto;
+}

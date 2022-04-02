@@ -1,0 +1,42 @@
+.contenedorRegistro {
+    width: 20%;
+    height: 75%;
+    justify-content: space-around;
+}
+
+.formularioInicio {
+    height: 30%;
+}
+
+.capturarTexto {
+    height: 35%;
+    border-radius: 1em;
+    text-align: center;
+}
+
+.boton {
+    background-image: url('/public/iconos/sign-in-alt-solid.svg');
+    background-size: 48%;
+    background-repeat: no-repeat;
+    background-position: center 60%;
+}
+
+.seleccionado {
+    width: 100%;
+    border-radius: 0;
+}
+
+.noSeleccionado {
+    width: 80%;
+}
+
+.formInicio {
+    justify-content: space-around;
+}
+
+.contenedorEnviar {
+    height: 4em;
+    width: 4em;
+    margin-bottom: 10%;
+    overflow: hidden;
+}

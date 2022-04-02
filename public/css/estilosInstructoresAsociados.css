@@ -1,0 +1,31 @@
+.asociadoID {
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 22px;
+    font-size: 80%;
+    justify-content: center;
+}
+
+.asociadoRFC {
+    bottom: 0%;
+    transform: translateY(50%);
+    width: 70%;
+    height: 22px;
+    border-radius: .5em;
+    font-size: 80%;
+   
+    align-items: center;
+}
+
+.opcionAsociadaEliminar {
+    top: 0;
+    right: 0;
+}
+
+.asociado {
+    overflow: hidden;
+    display: flex;
+    justify-items: center;
+    white-space: nowrap;
+}

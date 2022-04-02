@@ -1,0 +1,36 @@
+.imagenBoton {}
+
+.elementoEnlazarInstructor {}
+
+.botonEnviarInstructor {
+    transition: transform 3s linear;
+   
+}
+
+.botonEnviarInstructor::after,.botonEnviarInstructor::before{
+    content: "";
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    position: absolute;
+    background-color: #cdedf4;
+    transition: transform 1s linear;
+    transform-origin: -15px -15px;
+    bottom: 0;
+    right: 0;
+}
+
+.botonEnviarInstructor:hover{
+    background-color: rgb(255, 79, 79);
+}
+.botonEnviarInstructor:hover::after{
+    
+    background-color: rgb(255, 79, 79);
+    transform: rotateZ(180deg);
+}
+.botonEnviarInstructor:hover::before{
+    
+    background-color: rgb(255, 79, 79);
+    transform: rotateZ(-360deg);
+}
+

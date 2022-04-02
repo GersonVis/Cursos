@@ -1,0 +1,4 @@
+escribiendoarray (
+  'valor' => '1',
+  'idCarrera' => '1',
+)

@@ -1,0 +1,10 @@
+.herramienta{
+    height: 180px;
+    width: 150px;
+    list-style: none;
+    transition: background-color linear 0.5s;
+}
+.herramienta:hover{
+    background-color: white;
+    border-radius: 2em;
+}

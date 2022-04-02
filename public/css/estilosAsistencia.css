@@ -1,0 +1,13 @@
+.divAsistencia{
+    width: 80%;
+    height: 100px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.asitenciaFecha{
+    height: 20%;
+}
+.asistenciaBitacora{
+    overflow: 1;
+    overflow: auto;
+}

@@ -1,0 +1,23 @@
+#arribaParte {
+    height: 35px;
+    min-height: 80px;
+}
+
+#sectionBusqueda {}
+
+.busquedaBarra {
+    width: 60%;
+    height: 35px;
+    min-height: 35px;
+    padding-top: 20px;
+}
+
+.busquedaBarra input {
+    height: 100%;
+}
+
+.formBusqueda {}
+.busquedaOpciones{
+    width: 30%;
+    padding-top: 10px;
+}

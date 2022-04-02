@@ -1,0 +1,312 @@
+* {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    text-decoration: none;
+    user-select: none;
+        scrollbar-width: thin;
+        
+}
+
+.sombra {
+    box-shadow: 0px 4px 3px #737373;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+.flexCentrado {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+}
+
+.flexCentradoR {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-content: center;
+    align-items: center;
+}
+
+.flexCentradoC {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-content: center;
+    align-items: center;
+}
+
+.centrar {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.imagen {
+    width: 200px;
+    height: 200px;
+    background-size: contain;
+}
+
+.redondear {
+    border-radius: 2em;
+}
+
+.redondearDos {
+    border-radius: .5em;
+}
+
+.circulo {
+    border-radius: 50% 50%;
+}
+
+.mitadTodoHW {
+    height: 50%;
+}
+
+.mitad {
+    height: 50%;
+    width: 50%;
+}
+
+.unTercio {
+    height: 30%;
+    width: 30%;
+}
+
+.unQuinto {
+    height: 30%;
+    width: 30%;
+}
+
+.expandir {
+    width: 100%;
+}
+
+.sinBarra {
+    overflow: hidden;
+}
+
+.expandirAmbos {
+    width: 100%;
+    height: 100%;
+}
+
+.colorFondo {
+    background-color: #FFF0F0;
+    ;
+}
+
+.colorPrimario {
+    background-color: #C4C4C4;
+}
+
+.colorSecundario {
+
+    background-color: #F0F0F0;
+}
+
+.borderSeleccionado {
+    border: 1px solid blue;
+}
+
+.colorTercero {
+    background-color: #FFCB9B;
+}
+
+.colorCuarto {
+    background-color: white;
+}
+
+.colorQuinto {
+    background-color: #FF3434;
+}
+
+.hacerCirculo {
+    border-radius: 50% 50% 50% 50%;
+}
+
+.icono {
+    width: 36%;
+    height: 70%;
+}
+
+.colorError {
+    background-color: rgb(248, 149, 149);
+}
+
+.colorDegradadoBase {
+    background: radial-gradient(farthest-side circle at 0% 130%, #F9D2D2, #DAD5D5);
+}
+
+.ocuparDisponible {
+    flex-grow: 1;
+}
+
+.barraDeDesplazamiento {
+    overflow: auto;
+}
+
+.textoTipoA {
+    font-weight: bold;
+    font-size: 1em;
+    margin: 2em 0 0 1.5em;
+    transform: uppercase;
+    text-transform: uppercase;
+}
+
+.textoTipoB {
+    font-weight: normal;
+    font-size: 1em;
+    margin: 1em 1em 1em 2em;
+}
+
+.textoTipoC {
+    font-weight: normal;
+    font-size: 1em;
+
+}
+
+.textoTipoD {
+    font-weight: bold;
+   
+    text-transform: uppercase;
+    font-size: .8em;
+}
+
+.columna {
+    flex-direction: column;
+}
+
+.expandirDoble {
+    width: 100%;
+    height: 50%;
+}
+
+.posicionRelativa {
+    position: relative;
+}
+
+.posicionAbsoluta {
+    position: absolute;
+}
+
+.expandirW {
+    width: 100%;
+}
+
+.expandirH {
+    height: 100%;
+}
+
+.displayFlexC {
+    display: flex;
+    flex-direction: column;
+}
+
+.displayFlexR {
+    display: flex;
+    flex-direction: row;
+}
+
+.cuartoColor {
+    background-color: #FFF0F0;
+}
+
+.expandirOchenta {
+    width: 80%;
+    height: 80%;
+}
+
+.expandirSetenta {
+    width: 70%;
+    height: 70%;
+}
+
+.barras {
+    overflow: auto;
+}
+
+.listaSinEstilo {
+    list-style: none;
+}
+
+.columna {
+    flex-direction: column;
+}
+
+.posicionAbsoluta {
+    position: absolute;
+}
+
+.centrarAbsoluto {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+.textoSeleccionado {
+    background-color: #CDEDF4;
+}
+
+.colorBaseDos {
+    background-color: #CDEDF4;
+}
+
+.gridCuatro {
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+}
+
+.gridTres {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    grid-auto-rows: minmax(210px, auto);
+}
+
+.seleccionarTipoDos {
+    border-radius: 3em;
+    background-color: #fff0f0;
+}
+
+.ezquinaSuperiorDerecha {
+    top: 0;
+    right: 0;
+}
+
+.sombraDos {
+    box-shadow: 0px 0px 5px #c6c5c570;
+    
+}
+
+.BotonCircular {
+    background-color: #CDEDF4;
+    transition: all 1s linear;
+    transition: border 1s ease-out;
+}
+
+.BotonCircular::after {
+    content: "";
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    border-radius: 50% 50%;
+   
+}
+.BotonCircular:hover{
+    background-color: #83c3d1;
+}
+.BotonCircular:hover::after{
+    border: 1px solid #295d68;
+   
+}

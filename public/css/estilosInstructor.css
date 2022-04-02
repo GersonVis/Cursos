@@ -1,0 +1,29 @@
+#contenedorPrincipal{
+    display: flex;
+}
+
+#contenedorOpciones{
+    padding: 2em 0em 0 0em;
+    width: 100%;
+}
+
+#botonEnviar{
+    width: 30%;
+    border-radius: 0 2em 2em 0;
+    background-image: url("/public/iconos/lupa.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: auto 70%;
+}
+#buscar{
+    width: 70%;
+    border-radius: 2em 0 0 2em;
+}
+.opcionesHorizontal{
+  /*  transition: all 4s linear;*/
+}
+@keyframes animacionRotar{
+   to{
+    transform: rotate(90deg);
+   }
+}

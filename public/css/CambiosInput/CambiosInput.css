@@ -1,0 +1,30 @@
+.divOF {
+    width: 80%;
+    height: 60px;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    padding: 0 21px 10px 10px;
+    padding-bottom: 14px;
+  
+    margin: 10px 10px 10px 10px;
+    padding: 6px;
+    min-height: 80px;
+}
+
+.ciInputCambiar {
+    height: 40%;
+}
+
+.buttonCIA {
+    width: 20%;
+    height: 30%;
+    top: 5%;
+    right: 1%;
+}
+.divOF.seleccionado{
+    border: 1px solid blue;
+}
+.divOF.noSeleccionado{
+    border: 1px solid #cacaca;
+}

@@ -1,0 +1,120 @@
+.divPSA{
+    margin: 0px 0 40px 0px;
+}
+.divPSAPadre {
+    width: 100%;
+    max-width: 540px;
+}
+
+.divPSAPadreTitulo {
+    width: 100%;
+    height: 30px;
+}
+
+.divPSAPadreSubirArchivo {
+    width: 100%;
+    height: 135px;
+    min-height: 135px;
+    margin-top: 8px;
+    
+}
+.divPSAPadreRerefenciaAArchivo{
+    width: 85px;
+    height: 100px;
+  
+    margin: 0 10px 0 10px;
+}
+.buttonPSABotonEliminar{
+    border-radius: 50% 50%;
+    width: 27px;
+    height: 27px;
+    position: absolute;
+    top: -7px;
+    right: -7px;
+}
+.imgPSAImagen {
+    width: 50%;
+    height: auto;
+
+}
+
+.divPSAPadreCrearAccionArchivo {
+    width: 85px;
+    height: 100px;
+    overflow: hidden;
+    margin: 0 10px 0 10px;
+    /*border: 1px solid rgb(130, 127, 127);*/
+}
+
+.divPSAPadreCrearAccionArchivo::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-color: #cdedf457;
+    top: 100%;
+    right: 100%;
+    position: absolute;
+    transform: rotateZ(0deg);
+    transform-origin: 100% 0%;
+    transition: transform .5s cubic-bezier(.17, .84, .62, 1.2);
+    border-radius: .5em;
+   
+}
+
+.divPSAPadreCrearAccionArchivo:hover {}
+
+.divPSAPadreCrearAccionArchivo:hover:after {
+    transform: rotateZ(180deg)
+}
+
+.divPSAContenedorImagen {
+    width: 60px;
+    height: 60px;
+}
+
+.buttonPSABotonSubirArchivo {
+    bottom: -15px;
+    right: -5px;
+    width: 50px;
+    height: 50px;
+    z-index: 1;
+}
+
+.divPSAContenedorAgregar {
+    height: 100%;
+    width: 20%;
+}
+
+.divPSAListaArchivos {
+    height: 100%;
+    display: flex;
+  /*  display: grid;
+    align-items: center;
+    grid-template-columns: 100px auto;
+    grid-template-rows: 1fr;*/
+}
+.divPSAContenedorListaArchivos{
+    width: 80%;
+    max-width: 80%;
+    display: flex;
+    overflow: auto;
+    height: 100%;
+}
+.abbrPSATitulo{
+    white-space: nowrap;
+    width: 80%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+}
+.estadoConjunto{
+    left: 3px;
+}
+.selectPSASelectEstados{
+    left: 10px;
+    width: 160px;
+}
+.labelPSAEstadoConjunto{
+    left: 10px;
+    width: 160px;
+}

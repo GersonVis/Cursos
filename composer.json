@@ -1,0 +1,13 @@
+{
+    "name": "iti/crearword",
+    "description": "crear un word",
+    "authors": [
+        {
+            "name": "GersonVis",
+            "email": "visoso126@gmail.com"
+        }
+    ],
+    "require": {
+        "phpoffice/phpword": "^0.18.2"
+    }
+}

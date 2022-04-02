@@ -1,0 +1,68 @@
+.datoPanelIndividuo {
+    width: 80%;
+    height: 30px;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+#informacionIndividuo {
+    padding-top: 15%;
+
+}
+
+.datoPanelIndividuo input {
+    height: 100%;
+    text-align: center;
+  
+}
+
+.datoIndividuo p {
+    text-align: center;
+}
+
+#listaDatosIndividuo {
+    justify-content: initial;
+}
+
+.etiquetaDato {
+    width: 30%;
+    text-align: center;
+}
+
+.textoIndividuo {
+    width: 100%;
+}
+
+.contenedorEditar {
+    width: 10%;
+    height: 100%;
+}
+
+.contenedorEditar .botonEditarInformacion {
+    position: absolute;
+    height: 28px;
+    width: 28px;
+    overflow: hidden;
+    right: 3px;
+    top: 1px;
+}
+
+.imagenEditar {
+    height: 50%;
+    width: auto;
+}
+.cajaOpcionesEdicion{
+    position: absolute;
+    height: 28px;
+    width: 58px;
+    overflow: hidden;
+    right: 3px;
+    top: 1px;
+    visibility: hidden;
+}
+.botonAccion{
+   
+    height: 28px;
+    width: 28px;
+    overflow: hidden;
+}
