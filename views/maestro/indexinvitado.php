@@ -33,8 +33,9 @@ $botonSalir = new BotonSalir();
     <link rel="stylesheet" href="/public/css/estilosBusqueda.css">
     <link rel="stylesheet" href="/public/css/estilosInstructoresAsociados.css">
     <link rel="stylesheet" href="/public/css/estilosenlazarInstructoresDisponibles.css">
-    <link rel="stylesheet" href="/public/css/estilosEnlazadoPrincipal.css">
-    <link rel="stylesheet" href="/public/css/estilosAsistencia.css">
+    <link rel="stylesheet" href="/public/css/listaSecciones.css">
+    <link rel="stylesheet" href="/public/css/estilosPanelSubirArchivo.css">
+    <link rel="stylesheet" href="/public/css/CambiosInput/CambiosInput.css">
 </head>
 
 <body>
@@ -163,6 +164,7 @@ $botonSalir = new BotonSalir();
   <!--  <script src="/public/js/scriptscurso/panelDeElementos.js"></script>-->
     <script src="/public/js/scriptscursoinvitado/maestrosAsociados.js"></script>
     <script src="/public/js/scriptscursoinvitado/enlazadoPrincipal.js"></script>
+    <script src="/public/js/ComponentWeb/CambiosInput.js"></script>
     <script>
       
     </script>

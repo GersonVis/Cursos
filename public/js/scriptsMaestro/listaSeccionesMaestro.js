@@ -19,6 +19,7 @@ window.addEventListener("load", function(){
                     listaSecciones.appendChild(opcion)
                 })
                mostrarPorCategoria(Object.keys(opciones)[0]||0) 
+       
     })
     .catch(e=>{
         console.error(e)

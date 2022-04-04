@@ -31,7 +31,7 @@ $botonSalir = new BotonSalir();
     echo $datoIndividuo->estiloCSS();
     echo $botonSalir->estiloCSS();
     ?>
-    <link rel="stylesheet" href="/public/css/estilosPorDefecto.css">
+   <link rel="stylesheet" href="/public/css/estilosPorDefecto.css">
     <link rel="stylesheet" href="/public/css/estilosInstructor.css">
     <link rel="stylesheet" href="/public/css/estilosInformacionIndividual.css">
     <link rel="stylesheet" href="/public/css/estilosCrear.css">
@@ -39,6 +39,8 @@ $botonSalir = new BotonSalir();
     <link rel="stylesheet" href="/public/css/estilosInstructoresAsociados.css">
     <link rel="stylesheet" href="/public/css/estilosenlazarInstructoresDisponibles.css">
     <link rel="stylesheet" href="/public/css/listaSecciones.css">
+    <link rel="stylesheet" href="/public/css/estilosPanelSubirArchivo.css">
+    <link rel="stylesheet" href="/public/css/CambiosInput/CambiosInput.css">
 
 </head>
 
@@ -117,9 +119,9 @@ $botonSalir = new BotonSalir();
                     </ul>
                 </li>
             </div>
-            <div id="informacionIndividuo" class="individuoDivision ocuparDisponible colorSecundario redondearDos">
+            <div id="informacionIndividuo" class="individuoDivision ocuparDisponible colorSecundario redondearDos barras">
 
-                <ul id="listaDatosIndividuo" class="expandirAmbos flexCentradoC listaSinEstilo posicionRelativa">
+                <ul id="listaDatosIndividuo" class="flexCentradoC listaSinEstilo posicionRelativa">
                     <?php
                     for ($t = 0; $t < 5; $t++) {
                         echo $datoIndividuo->codigoHTML();
@@ -162,6 +164,7 @@ $botonSalir = new BotonSalir();
     <script src="/public/js/scriptsMaestro/asociarInstructores.js"></script>
     <script src="/public/js/scriptsMaestro/opcionesSeleccion.js"></script>
     <script src="/public/js/scriptsMaestro/listaSeccionesMaestro.js"></script>
+  
     <script>
         // setInterval(() => elem.setAttribute('datetime', new Date()), 1000); // (5)
         function hacerPorCookie() {

@@ -1,5 +1,4 @@
 
-var opd
 class PanelSubirArchivo extends HTMLElement {
     constructor() {
         super()
@@ -64,7 +63,7 @@ class PanelSubirArchivo extends HTMLElement {
             .then(respuesta=>respuesta.json())
             .then(jsonInformacion=>{
                 let opciones={}
-                opd=opciones
+              
                 jsonInformacion.forEach(datos=>{
                     let opcion=document.createElement('option')
                     let id=datos.id.valor
@@ -235,7 +234,7 @@ class PanelSubirArchivo extends HTMLElement {
                 body: padreGlobal.informacion
             }).then(respuesta=>{
                   if(respuesta.status=="200"){
-                      padreGlobal.listaArchivos.remove(padre)
+                      padreGlobal.listaArchivos.removeChild(divPrincipal)
                       alert("Eliminado correctamente")
                       return
                   }
@@ -246,10 +245,21 @@ class PanelSubirArchivo extends HTMLElement {
                 alert("Error: "+error)
             })
         })
-        botonEliminar.addEventListener("click", function () {
+        botonEliminar.addEventListener("click", function (e) {
+            e.stopPropagation()
             funcionBotonEliminar(datosExtra || "")
         })
-
+        divPrincipal.addEventListener("click", function(){
+             let formulario=document.createElement("form")
+             formulario.method="POST"
+             formulario.target="_blank"
+             formulario.action="/archivo/descargar"
+             formulario.innerHTML=`<input type="hidden" value="${divPrincipal.attributes.idsql.value}" name="id">`
+             this.appendChild(formulario)
+             formulario.submit()
+             formularioPrueba=formulario
+             this.removeChild(formulario)
+        })
         return divPrincipal
     }
     crearListaArchivos() {
