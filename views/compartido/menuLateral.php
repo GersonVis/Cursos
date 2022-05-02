@@ -10,6 +10,7 @@ class MenuLateral
             "curso" => array("etiqueta"=>"Cursos","href" => "href=\"/curso\"", "clase" => $claseNoSeleccion),
             "maestro" => array("etiqueta"=>"Maestro","href" => "href=\"/maestro\"", "clase" => $claseNoSeleccion),
             "archivo" => array("etiqueta"=>"Archivos","href" => "href=\"/archivo\"", "clase" => $claseNoSeleccion),
+            "links" => array("etiqueta"=>"Links","href" => "href=\"/links\"", "clase" => $claseNoSeleccion)
         );
     }
     function estiloCSS()

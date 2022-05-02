@@ -1,0 +1,6 @@
+.InterfazLink {
+    height: 180px;
+    width: 150px;
+    list-style: none;
+    transition: background-color linear 0.5s, border-radius linear 0.5s;
+}
