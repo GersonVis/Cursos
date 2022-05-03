@@ -43,17 +43,10 @@ class Links extends Controller{
     }
     function crear(){
         $instructor=array();
-        $datos['rfc']=$_POST['rfc']; 
-        $datos['psw']=$_POST['psw'];
-        $datos['nombre']=$_POST['nombre'];
-        $datos['apellidoPaterno']=$_POST['apellidoPaterno'];
-        $datos['apellidoMaterno']=$_POST['apellidoMaterno'];
-        $datos['telefono']=$_POST['telefono'];
-        $datos['sexo']=$_POST['sexo'];
-        $datos['correo']=$_POST['correo'];
-        $datos['domicilio']=$_POST['domicilio'];
-        $cursosAEnlazar = json_decode($_POST['cursos']);
-        if (!$this->modelo->crear($datos, $cursosAEnlazar)) {
+        $datos['titulo']=$_POST['titulo']; 
+        $datos['link']=$_POST['link'];
+        $datos['descripcion']=$_POST['descripcion'];
+        if (!$this->modelo->crear($datos)) {
             http_response_code(404);
         }
         echo "creado correctamente";

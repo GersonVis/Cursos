@@ -1,6 +1,95 @@
+.InterfazLink{
+    
+}
+.InterfazLinkDivPadre{
+    width: 100%;
+    height: 100%;
+    border-radius: 30px;
+    overflow: hidden;
+    position: relative;
+    transform: rotateX(8deg) rotateY(8deg);
+    transition:  transform 0.5s linear;
+}
+.InterfazLinkDivPadre:hover{
+    transform: rotateX(0deg) rotateY(0deg);
+}
 .InterfazLink {
     height: 180px;
     width: 150px;
     list-style: none;
     transition: background-color linear 0.5s, border-radius linear 0.5s;
+    background-color: #CAECEA;
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.divCentral {
+    width: 166px;
+    position: absolute;
+    height: 50px;
+    background-color: white;
+    border-radius: 10px 0 10px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 0px 8px #b9a3a3;
+}
+.InterfazLinkDivEliminar{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 25px;
+    background-color: rgb(255, 52, 52);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.InterfazLinkImagen{
+    height: 65%;
+    width: auto;
+}
+.InterfazLinkDivEliminar::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 0%;
+    height: 0%;
+    background-color: rgb(254, 195, 0);
+    transition: width 0.3s linear, background-color 0.5s linear,  border-radius 0.5s linear, height 0.3s linear;
+    transform: translateY(-100%);
+    border-radius: 50%;
+}
+.InterfazLinkDivEliminar:hover::before{
+    width: 100%;
+    background-color: rgb(255, 52, 52);
+    border-radius: 0;
+    height: 150px;
+}
+.InterfazLinkDivInformaccion{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 25px;
+    background-color: rgb(200, 200, 200);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.InterfazLinkDivInformaccion::before{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    width: 0%;
+    height: 2px;
+    background-color: rgb(153, 153, 153);
+    transition: width 0.3s linear, background-color 0.5s linear;
+
+    transform: translateY(100%);
+}
+.InterfazLinkDivInformaccion:hover::before{
+    width: 100%;
+    background-color: rgb(200, 200, 200);
 }

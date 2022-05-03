@@ -42,7 +42,7 @@ $botonSalir = new BotonSalir();
 <body>
     <div id="contenedorPrincipal" class="expandirAmbos">
         <?php
-        $herramienta1 = $herramienta->codigoHTML("/public/iconos/subir-archivo.png", "crearInstructor", "Subir archivo");
+        $herramienta1 = $herramienta->codigoHTML("/public/iconos/enlace.png", "crearLink", "Crear link");
         echo $menuLateral->codigoHTML($this->nombre, $herramienta1);
         ?>
 
@@ -51,7 +51,7 @@ $botonSalir = new BotonSalir();
 
                 <div class="divBusqueda expandirAmbos flexCentradoR">
                     <form action="/curso/busqueda" id="formularioBusqueda" class="expandirAmbos flexCentradoC" method="POST">
-                        
+
                     </form>
                 </div>
 
@@ -116,23 +116,31 @@ $botonSalir = new BotonSalir();
             <section id="sectionCrear" class=" flexCentradoR colorSecundario redondearDos posicionRelativa">
                 <div id="individuoCrear" class="individuoDivision ocuparDisponible colorSecundario redondearDos barraDeDesplazamiento">
                     <div id="divPadreArchivo" class="expandirAmbos flexCentradoC">
-                    <div class="divFormularioEnviarArchivo">
-                        <form id="formularioSubirArchivo" method="POST" enctype="multipart/form-data" action="/archivo/subirArchivo" class="formularioEnviarArchivo expandirAmbos flexCentradoC">
-                        <div id="divArchivo" class="divDescripcion espacioDisponible flexCentradoC">
-                                <label id="labelArchivo" for="archivo">Archivo</label>
-                                <input type="file" id="archivo" name="archivo"></input>
-                            </div>    
-                        <div id="divDescripcion" class="divDescripcion flexCentradoC">
-                                <label for="descripcion" style="height: 13%" class="reondear colorSecundario">Descripcion:</label>
-                                <textarea wrap="soft" id="descripcion" type="text" name="descripcion" class="redondearDos sombra"></textarea>
-                            </div>
-                            
-
-                        </form>
-                    </div>
-                    <div class="divBotonEnviarArchivo ocuparDisponible flexCentradoC">
-                        <button id="botonSubirArchivo" class="colorPrimario redondear">Subir archivo</button>
-                    </div>
+                        <div class="divFormularioEnviarArchivo">
+                            <form id="formularioCrearEnlace" method="POST" enctype="multipart/form-data" action="/links/crearlink" class="formularioEnviarArchivo expandirAmbos flexCentradoC">
+                                <div class="divFormularioInput">
+                                    <div class="divAjustarFormulario">
+                                        <label for="titulo">Titulo</label>
+                                        <input name="titulo" type="text"></input>
+                                    </div>
+                                </div>
+                                <div class="divFormularioInput">
+                                    <div class="divAjustarFormulario">
+                                        <label for="link">Enlace</label>
+                                        <input name="link" type="text"></input>
+                                    </div>
+                                </div>
+                                <div class="divFormularioInput">
+                                    <div style="height: auto" class="divAjustarFormulario">
+                                        <label for="Description">Titulo</label>
+                                        <textarea style="height: 100px; margin-bottom:4px" name="Descripcion" type="text"></textarea>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="divBotonEnviarArchivo ocuparDisponible flexCentradoC">
+                            <button id="botonSubirArchivo" class="colorPrimario redondear">Crear enlace</button>
+                        </div>
                     </div>
 
 
@@ -149,22 +157,39 @@ $botonSalir = new BotonSalir();
     <script>
         //solicitar los links registrados
         fetch("links/todos")
-        .then(respuesta=>respuesta.json())
-        .then(data=>{
-            const elementosCreados=[]
-            const hijo=contenedorOpcionesDirecto
-            const padre=hijo.parentElement
-            data.forEach(dato=>{
-                console.log(dato)
-                let elementoCreado=document.createElement("interfaz-link")
-                elementoCreado.id=dato.id.valor
-                hijo.appendChild(elementoCreado)
+            .then(respuesta => respuesta.json())
+            .then(data => {
+                let contenido = ""
+                const hijo = contenedorOpcionesDirecto
+                const padre = hijo.parentElement
+                data.forEach(dato => {
+                    contenido += `<interfaz-link titulo="${dato.titulo.valor}" 
+                descripcion="${dato.descripcion.valor}"
+                enlace="${dato.link.valor}"
+                ></interfaz-link>`
+                })
+                hijo.innerHTML = contenido
             })
-            
+            .catch(error => {
+                console.log(error)
+            })
+        //crear un nuevo link
+        crearLink.addEventListener("click", function() {
+            sectionCrearInstructor.style.visibility = "visible"
         })
-        .catch(error=>{
-            console.log(error)
+        //enviar formulario crear enlace
+        fetch(formularioCrearEnlace.action, {
+            method: formularioCrearEnlace.method,
+            body: formularioCrearEnlace
         })
+        .then(respuesta=>repsuesta.text)
+        .then(texto=>{
+            console.log(texto)
+        })
+        .catch(e=>{
+            alert("Ocurrío un error"+ e);
+        })
+
     </script>
 </body>
 

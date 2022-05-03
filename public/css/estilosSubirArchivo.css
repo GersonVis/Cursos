@@ -2,7 +2,7 @@
     width: 100%;
     
 }
-#formularioSubirArchivo input, label{
+#formularioSubirArchivo>input, label{
     width: 80%;
 }
 #labelArchivo{
