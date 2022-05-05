@@ -32,6 +32,12 @@ class InterfazLink extends HTMLElement {
         this.divEliminar.innerHTML=`<img class="InterfazLinkImagen" src="public/iconos/basura.png">`
         this.divEliminar.className="InterfazLinkDivEliminar"
         this.divPadre.appendChild(this.divEliminar)
+        let accionBotonEliminar=this.getAttribute("accionBotonEliminar")
+        eval("accionBotonEliminar="+this.getAttribute("accionBotonEliminar"))
+        let valor=this.attributes.idsql.value
+        this.divEliminar.addEventListener("click", function(){
+          accionBotonEliminar(valor, this)
+        })
     }
     padre(){
         this.divPadre=document.createElement("div")
@@ -40,6 +46,9 @@ class InterfazLink extends HTMLElement {
     }
     renderizar(){
         this.className="InterfazLink"
+        let atributo=document.createAttribute("idsql")
+        atributo.value=this.getAttribute("idsql")
+        this.attributes.setNamedItem(atributo)
         this.padre()
         this.parteCentral(this.getAttribute("titulo")??"nulo", this.getAttribute("enlace")??"")
         this.parteEliminar()

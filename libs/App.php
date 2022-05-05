@@ -76,6 +76,7 @@ class App
     function __construct()
     {
         $datos = $this->limpiarUrl();
+        header('Content-Type: text/html; charset=utf-8');
     #    echo "   datos: ".var_dump($datos)."  ".$datos[0]."  d";
         $nombreControlador = $datos[0];
         $archivoController = "controllers/$nombreControlador.php";

@@ -21,17 +21,27 @@ class Links extends Controller{
     }
     function eliminar()
     {
-        $respuesta = $this->modelo->eliminar($_POST['id']);
-        if (!$respuesta) {
-            echo $respuesta->error;
+        if ($_SESSION['idRol'] == 1) {
+            $respuesta = $this->modelo->eliminar($_POST['id']);
+            if (!$respuesta) {
+                echo $respuesta->error;
+                http_response_code(404);
+                exit();
+            }
+            $informacion = $this->modelo->obtenerInformacion($_POST['id']);
+            //echo $informacion;
+            //echo count($informacion);
+            if (count($informacion) != 0) {
+                http_response_code(404);
+                exit();
+            }
+            echo "Borrado Exitosamente";
+        }else{
+            echo "No tienes permiso para realizar esta acción";
             http_response_code(404);
-            exit();
+           
         }
-        $informacion = $this->modelo->obtenerInformacion($_POST['id']);
-        if ($informacion->num_rows() != 0) {
-            http_response_code(404);
-            exit();
-        }
+        exit();
     }
     function columnas(){
         echo $this->modelo->columnasJSON();
@@ -42,14 +52,19 @@ class Links extends Controller{
       echo json_encode($respuesta);
     }
     function crear(){
-        $instructor=array();
-        $datos['titulo']=$_POST['titulo']; 
-        $datos['link']=$_POST['link'];
-        $datos['descripcion']=$_POST['descripcion'];
-        if (!$this->modelo->crear($datos)) {
-            http_response_code(404);
+        if ($_SESSION['idRol'] == 1) {
+            $datos['titulo']=$_POST['titulo']; 
+            $datos['link']=$_POST['link'];
+            $datos['descripcion']=$_POST['descripcion'];
+            if (!$this->modelo->crear($datos)) {
+                http_response_code(404);
+            }
+            echo "creado correctamente";
+            exit();
         }
-        echo "creado correctamente";
+        http_response_code(404);
+        echo "no tienes permiso para realizar esta acción";
+        exit();
     }
     function actualizar(){
         $arrayDatos=array();
@@ -76,4 +91,3 @@ class Links extends Controller{
     }
 
 }
-?>

@@ -1,0 +1,188 @@
+/*Estilos esteticos*/
+.divActualizarCuentaDebajo{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: red;
+}
+/*fin estilos esteticos*/
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-tercero);
+}
+
+.divActualizarCuenta {
+    width: 500px;
+    height: 90%;
+    border-radius: 13px;
+    border: 1px var(--color-primario) solid;
+    position: relative;
+    background-color: white;
+}
+
+.contenedorDAC {
+    display: flex;
+    justify-content: space-around;
+    ;
+    align-items: center;
+    width: 100%;
+    flex-direction: column;
+}
+
+.parteA {
+    height: 10%;
+}
+
+.parteB {
+    height: 20%;
+}
+
+.parteC {
+    height: 50%;
+}
+
+.parteC>input {
+    width: 100%;
+    height: 100%;
+    background-color: #F8F8F8;
+    position: relative;
+    text-indent: 20px;
+    color: black;
+}
+
+.inputDAC {
+    background-color: #F8F8F8;
+    padding: 0px 35px 0px 15px;
+}
+
+.inputDAC::after {
+    content: "Nombre de usuario";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+
+}
+
+.inputDAC::placeholder {
+    color: black;
+    /*text-indent: 10px;*/
+}
+
+.parteC>* {
+    border-radius: 8px;
+    box-shadow: 0px 7px 9px #0000001c;
+}
+
+.buttonDAC {
+    width: 210px;
+    height: 50px;
+    background-color: #FF3939;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    animation: EntradaBotonAdelante 3s linear;
+}
+
+.parteD {
+    height: 20%;
+}
+
+.subtituloDAC {
+    font-size: 10pt;
+    width: 60%;
+    font-style: normal;
+    font-stretch: semi-expanded;
+    text-align: center;
+}
+
+.imagenDAC {
+    position: absolute;
+    width: 21px;
+    height: 21px;
+    right: 10px;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+.divEntradaTextoDAC {
+    width: 340px;
+    height: 50px;
+    position: relative;
+    display: flex;
+
+}
+
+.divEntradaTextoDAC>input {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+}
+
+#botonAdelante {
+    width: 80px;
+    border-radius: 8px;
+    box-shadow: 0px 7px 9px #0000001c;
+    background-color: #F8F8F8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+#botonAdelante>img {
+    position: relative;
+    right: 0;
+}
+
+.divEntradaTextoDAC {
+    animation: EntradaDivEntradaTextoDAC 3s linear;
+}
+
+/*Animaciones*/
+@keyframes EntradaBotonAdelante {
+    28% {
+        transform: rotateZ(0deg) translateY(0px);
+    }
+
+    35% {
+        transform: rotateZ(-10deg) translateY(-30px);
+    }
+    53% {
+        transform: rotateZ(0deg) translateY(-20px);
+    }
+    70% {
+        transform: rotateZ(30deg) translateY(-40px);
+    }
+
+}
+
+@keyframes EntradaDivEntradaTextoDAC {
+    0% {
+        transform: rotateX(60deg) translateZ(var(--inicio));
+        background-color: #f8f8f800;
+    }
+
+    70% {
+        transform: rotateX(60deg) translateZ(0px);
+    }
+
+    100% {
+        transform: rotateX(0deg);
+        background-color: #F8F8F8;
+    }
+}
+
+/*.divEntradaTextoDAC::after {
+    content: "";
+    position: absolute;
+    background-color: red;
+    width: 100%;
+    height: 100%;
+}
+.divEntradaTextoDAC:hover::after{
+    transform: translateX(30px);
+}*/

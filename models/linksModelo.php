@@ -9,12 +9,13 @@ class LinksModelo extends Model
   function obtenerInformacion($posicion)
   {
     $conexion = $this->bd->conectar();
-    $sqlConsulta = "select * from curso where id='$posicion'";
+    $sqlConsulta = "select * from links where id='$posicion'";
     $informacion = $this->bd->tiposDeDatoConsulta($conexion, $sqlConsulta);
+   // echo json_encode($informacion);
     unset($informacion[0]['id']);
     $columnasConEnlaces = $this->columnasTipo();
     $conexion = $this->bd->conectar();
-    $sqlConsulta = "select * from curso";
+    $sqlConsulta = "select * from links where id='$posicion'";
     $informacion = $this->bd->tiposDeDatoConsulta($conexion, $sqlConsulta);
     foreach ($columnasConEnlaces as $identificador => $contenido) {
       if ($contenido['tipo'] == "enlazada") {
@@ -24,8 +25,8 @@ class LinksModelo extends Model
         }
       }
     }
+  
     return $informacion;
-
   }
   function tiposDeDato($valor)
   {
@@ -87,12 +88,10 @@ class LinksModelo extends Model
 
   function eliminar($id)
   {
+    
     $conexion = $this->bd->conectar();
-
-    $sqlConsultaEliminarEnlaces = "delete from impartio where idCurso=$id;";
+    $sqlConsultaEliminarEnlaces = "delete from links where id=$id;";
     $respuesta = $this->bd->consulta($conexion, $sqlConsultaEliminarEnlaces);
-    $sqlConsulta = "delete from curso where id=$id";
-    $respuesta = $this->bd->consulta($conexion, $sqlConsulta);
     return $respuesta;
   }
   function columnas() ///regresa los datos de las columnas que contiene la tabla
@@ -120,20 +119,16 @@ class LinksModelo extends Model
 
 
 
-  function crear($datos, $idsInstructores) //se crea el curso y se enlazan los ids de instructores en la tabla de impartio
+  function crear($datos) //se crea el curso y se enlazan los ids de instructores en la tabla de impartio
   {
     $conexion = $this->bd->conectar();
-    if (!$consulta = $conexion->prepare("INSERT INTO curso VALUES (NULL, ?,?,?,?,?,?,?,?);")) {
+    if (!$consulta = $conexion->prepare("INSERT INTO links(titulo, link, descripcion) VALUES (?,?,?);")) {
       echo "error";
       return false;
     }
-    $consulta->bind_param("ssssssss", $datos['claveCurso'], $datos['fechaInicial'], $datos['fechaFinal'], $datos['horas'], $datos['cupo'], $datos['nombreCurso'], $datos['lugar'], $datos['horario']);
+    $consulta->bind_param("sss", $datos['titulo'], $datos['link'], $datos['descripcion']);
     //$idInsertado=$this->mysqli->insert_id;
     $consulta->execute();
-    $idInsertado = $consulta->insert_id;
-    foreach ($idsInstructores as $idInstructor => $valor) {
-      $this->bd->consulta($conexion, "insert impartio valueS(NULL,  '$idInsertado', '$idInstructor')");
-    }
     $conexion->close();
     return true;
   }

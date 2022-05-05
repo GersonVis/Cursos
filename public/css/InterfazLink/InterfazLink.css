@@ -1,5 +1,5 @@
 .InterfazLink{
-    
+    margin-bottom: 25px;
 }
 .InterfazLinkDivPadre{
     width: 100%;
@@ -7,7 +7,7 @@
     border-radius: 30px;
     overflow: hidden;
     position: relative;
-    transform: rotateX(8deg) rotateY(8deg);
+    transform: rotateX(10deg) rotateY(10deg);
     transition:  transform 0.5s linear;
 }
 .InterfazLinkDivPadre:hover{
