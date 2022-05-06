@@ -68,7 +68,6 @@ function interfazDatoIndividuo(etiqueta, dato, identificadorFormulario, tipo, ac
     elemento.accion=function (datos){
         actualizarRegistro(urlBase+"/actualizar", datos.id, datos.nombreColumna, datos.valorNuevo)
     }
-
     prue=elemento
     return elemento
 }

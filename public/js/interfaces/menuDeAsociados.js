@@ -38,9 +38,9 @@ function inputFormulario(etiqueta, tipo) {
         return interfazInstructor(informacion)
   }
   function interfazInstructorEnlace(informacion, etiquetas=['id', 'nombre', 'rfc']){
-      id=informacion[etiquetas[0]].valor
-      nombre=informacion[etiquetas[1]].valor
-      rfc=informacion[etiquetas[2]].valor
+      let id=informacion[etiquetas[0]].valor
+      let nombre=informacion[etiquetas[1]].valor
+      let rfc=informacion[etiquetas[2]].valor
       let elemento = document.createElement("li")
       let botonEliminar
       elemento.id="opcion"+id

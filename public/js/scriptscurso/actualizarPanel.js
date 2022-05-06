@@ -48,6 +48,7 @@ document.addEventListener("DOMContentLoaded", function () {//se crea la interfaz
                     datosJSON.forEach(datos=>{
                         ({interfaz, botonEliminar}=interfazInstructorEnlace(datos, ['id', 'nombreCurso', 'claveCurso']))
                             interfaz.addEventListener('click', function(){
+                                id=interfaz.attributes.idsql.value
                                 clickOpcionEnlace(this)
                             })
                             dentroInstructores.appendChild(interfaz)

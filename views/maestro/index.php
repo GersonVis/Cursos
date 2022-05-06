@@ -117,6 +117,9 @@ $botonSalir = new BotonSalir();
                     <ul id="botonAsociarInstructores" class="subMenuOpcion subMenu opcionIndividuo flexCentradoR redondearDos">
                         <p>Asociar cursos</p>
                     </ul>
+                    <ul id="botonCuentaDeUsuario" class="subMenuOpcion subMenu opcionIndividuo flexCentradoR redondearDos">
+                        <p>Cuenta de usuario</p>
+                    </ul>
                 </li>
             </div>
             <div id="informacionIndividuo" class="individuoDivision ocuparDisponible colorSecundario redondearDos barras">
@@ -164,8 +167,9 @@ $botonSalir = new BotonSalir();
     <script src="/public/js/scriptsMaestro/asociarInstructores.js"></script>
     <script src="/public/js/scriptsMaestro/opcionesSeleccion.js"></script>
     <script src="/public/js/scriptsMaestro/listaSeccionesMaestro.js"></script>
-  
+    <script src="/public/js/scriptsMaestro/cuentaDeUsuario.js"></script>
     <script>
+        
         // setInterval(() => elem.setAttribute('datetime', new Date()), 1000); // (5)
         function hacerPorCookie() {
             <?php

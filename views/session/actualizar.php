@@ -12,39 +12,56 @@
 
 <body>
 
-
-    <div class="divActualizarCuenta" id="divActualizarCuenta">
+    <div class="divActualizarCuentaPadre">
         <div class="divActualizarCuentaDebajo">
-            <img src="/public/imagenes/personaAsomandose.png" id="imagenAsomandoseDAC">
-        </div>
-        <div class="contenedorDAC parteA">
-        </div>
-        <div class="contenedorDAC parteB">
-            <h1>Bienvenido</h1>
-            <p class="subtituloDAC">Elige un nombre de usuario nuevo y una contraseña nueva, el nombre de usuario no debe repetirse el sistema te dirá si es así</p>
-        </div>
-        <div class="contenedorDAC parteC">
-            <div class="divEntradaTextoDAC">
-                <input type="text" class="inputDAC" placeholder="Nombre de usuario">
-                <img src="/public/iconos/user.png" class="imagenDAC">
+            <div id="divImagenAnimadaADAC">
+                <img src="/public/imagenes/personaAsomandose.png" id="imagenAsomandoseDAC">
             </div>
-            </input>
-            <div class="divEntradaTextoDAC">
-                <input type="text" class="inputDAC" placeholder="Contraseña">
-                <img src="/public/iconos/desbloquear.png" class="imagenDAC">
+            
+           
+            <div id="divImagenAnimadaADACAmarilla">
+                <img src="/public/imagenes/personaAsomandoseAzul.png" id="imagenAsomandoseDAC">
             </div>
-            <button class="buttonDAC">
-                <img style="position: relative; right: 0" src="/public/iconos/enter.png" class="imagenDAC">
-            </button>
+            <div id="divImagenAnimadaADACAzul">
+                <img src="/public/imagenes/personaAsomandoseAzul.png" id="imagenAsomandoseDAC">
+            </div>
+            <div id="divImagenAnimadaADACRoja">
+                <img src="/public/imagenes/personaAsomandose.png" id="imagenAsomandoseDAC">
+            </div>
         </div>
-        <div class="contenedorDAC parteD">
-            <div class="divEntradaTextoDAC" id="botonAdelante">
-                <img src="/public/iconos/flecha-derecha.png" class="imagenDAC">
+        <div class="divActualizarCuenta" id="divActualizarCuenta">
+
+            <div class="contenedorDAC parteA">
+            </div>
+            <div class="contenedorDAC parteB">
+                <h1>Bienvenido</h1>
+                <p class="subtituloDAC"><?php echo $this->mensaje;?></p>
+            </div>
+            <form action="/session/actualizar" method="post" class="contenedorDAC parteC">
+                <input type="hidden" name="usuarioCambio" value="<?php echo $_SESSION["id"];?>">
+                <div class="divEntradaTextoDAC">
+                    <input name="usuario" type="text" class="inputDAC" placeholder="Nombre de usuario">
+                    <img src="/public/iconos/user.png" class="imagenDAC">
+                </div>
+                </input>
+                <div class="divEntradaTextoDAC">
+                    <input name="clave" type="password" type="text" class="inputDAC" placeholder="Contraseña">
+                    <img src="/public/iconos/desbloquear.png" class="imagenDAC">
+                </div>
+                <button class="buttonDAC">
+                    <img style="position: relative; right: 0" src="/public/iconos/enter.png" class="imagenDAC">
+                </button>
+            </form>
+            <div class="contenedorDAC parteD">
+                <div class="divEntradaTextoDAC" id="botonAdelante">
+                    <img src="/public/iconos/flecha-derecha.png" class="imagenDAC">
+                </div>
             </div>
         </div>
     </div>
+
     <script>
-        /*   const idMaestro = <?php echo $_SESSION['idEnlazado']; ?>;
+        /*   const idMaestro = <?php echo "";// echo $_SESSION['idEnlazado']; ?>;
         let botonesAnteriores, informacionAnterior, transitorioBotones, transitorioInformacion;
         let numeroDeInterfaz = 0;
         let botonAtras = document.createElement("button")

@@ -1,65 +1,150 @@
 <?php
 include_once 'controllers/main.php';
- class Session extends Controller{
-     function __construct()
-     {
-         parent::__construct(false);
-         $this->view->estilo="colorSecundario";
-     }
-     function crearCarpetaUsuario($nombre){
-         $rutaCarpeta=$this->rutaPublica."$nombre/";
-         echo $nombre;
-         if(!file_exists($rutaCarpeta)){
-             mkdir($rutaCarpeta, 0700);
-         }
-         $_SESSION["carpeta"]=$rutaCarpeta;
-     }
-     function registrar(){
-            $usuario=$_POST['usuario'];
-            $clave=isset($_POST['clave'])?$_POST['clave']:"";
-            if($usuario!="" && $clave!=""){
-                $respuesta=$this->modelo->usuario($usuario, $clave);
-                echo var_dump($respuesta);
-               // $registro=$respuesta->fetch_assoc();
-              if($respuesta){
-                  //si es la primera vez en iniciar session redirige a poder cambiar su nombre de usuario y contraseña
-                   
-                     $_SESSION['nombre']=$respuesta['nombre'];
-                     $_SESSION['id']=$respuesta['id'];
-                     $_SESSION['clave']=$respuesta['clave'];
-                     $_SESSION['idRol']=$respuesta['idRol'];
-                     $_SESSION['idEnlazado']=$respuesta['idEnlazado'];
-          
-                     $this->crearCarpetaUsuario($_SESSION['id']);
-                     if($respuesta['nuevo']=="0" &&  $_SESSION['idRol']==3){
-                        header("Location: /session/mostrarActualizacion");
-                        exit();
-                      }
-                    header('Location: /main'); 
-                     exit();
-                }
-            } 
-            $this->view->estilo="colorError";
-            $this->Renderizar("session/index");
-            exit();
-       
+class Session extends Controller
+{
+    function __construct()
+    {
+        parent::__construct(false);
+        $this->view->mensaje = "Este es un sitio web privado, necesita un nombre de usuario y una contraseña asignada";
+        $this->view->estilo = "colorSecundario";
+    }
+    function crearCarpetaUsuario($nombre)
+    {
+        $rutaCarpeta = $this->rutaPublica . "$nombre/";
+        //echo $nombre;
+        if (!file_exists($rutaCarpeta)) {
+            mkdir($rutaCarpeta, 0700);
+        }
+        $_SESSION["carpeta"] = $rutaCarpeta;
+    }
+
+    function informacionPorUrl($posicion){
+        $datos = $this->modelo->obtenerInformacion($posicion);
+        echo json_encode($datos);
+    }
+
+    
+    function registrar()
+    {
         
-       // header('location: /main');
-     }
-     function error(){
-         $this->view->estilo="colorError";
-         $this->Renderizar('session/index');
-     }
-     function salir(){
-         if(isset($_SESSION)){
-             unset($_SESSION['nombre']);
-             unset($_SESSION['clave']);
-             unset($_SESSION['grado']);
-         }
-         header('Location: /session');
-     }
-     function mostrarActualizacion(){
+        $usuario = $_POST['usuario'];
+        $clave = isset($_POST['clave']) ? $_POST['clave'] : "";
+        if ($usuario != "" && $clave != "") {
+            $respuesta = $this->modelo->usuario($usuario, $clave);
+            // echo var_dump($respuesta);
+            // $registro=$respuesta->fetch_assoc();
+            if ($respuesta) {
+                //si es la primera vez en iniciar session redirige a poder cambiar su nombre de usuario y contraseña
+
+                $_SESSION['nombre'] = $respuesta['nombre'];
+                $_SESSION['id'] = $respuesta['id'];
+                $_SESSION['clave'] = $respuesta['clave'];
+                $_SESSION['idRol'] = $respuesta['idRol'];
+                $_SESSION['idEnlazado'] = $respuesta['idEnlazado'];
+
+                $this->crearCarpetaUsuario($_SESSION['id']);
+                if ($respuesta['nuevo'] == "0" &&  $_SESSION['idRol'] == 3) {
+                    $this->view->mensaje = "Es la primera vez que inicias sesión con nosotros, elige un nuevo nombre de usuario y una contraseña";
+                    $this->mostrarActualizacion();
+                    //header("Location: /session/mostrarActualizacion");
+                    exit();
+                }
+                header('Location: /main');
+                exit();
+            }
+        }
+        $this->view->mensaje="Datos incorrectos, prueba de nuevo";
+        $this->view->estilo = "colorError";
+        $this->Renderizar("session/index");
+        exit();
+
+
+        // header('location: /main');
+    }
+    function error()
+    {
+        $this->view->estilo = "colorError";
+        $this->Renderizar('session/index');
+    }
+    function salir()
+    {
+        if (isset($_SESSION)) {
+            unset($_SESSION['nombre']);
+            unset($_SESSION['clave']);
+            unset($_SESSION['grado']);
+        }
+        header('Location: /session');
+    }
+    function mostrarActualizacion()
+    {
         $this->view->Renderizar("session/actualizar");
         exit();
-     }
- }
+    }
+    function actualizar(){
+        $this->view->mensaje="";
+        //rescatamos los datos enviados por el formulario
+        $usuario=$_POST["usuario"];
+        $clave=$_POST["clave"];
+        //quitamos caracteres especiales
+        $usuario=$this->limpiarCadena($usuario);
+        $clave=$this->limpiarCadena($clave);
+        //nombre de los metodos
+        $condicionesUsuario=["vacio", "longitud"];
+        //mensajes
+        $mensajesUsuario=[" El nombre de usuario no puede estar vacío. ", " El nombre de usuario es demasiado corto. "];
+        $mensajesClave=[" La contraseña no puede estar vacía. ", " La contraseña es demasiado corta. "];
+        //parametros requeridos por los metodos
+        $parametrosUsuario=["", 6];
+        $parametrosClave=["", 7];
+        $contador=0;
+        //variable para almacenar los errores
+        $stringErrores="";
+        foreach($condicionesUsuario as $valor){
+            $stringErrores.= $this->$valor( $mensajesUsuario[$contador], $usuario, $parametrosUsuario[$contador]);
+            $contador++;
+        }
+        $contador=0;
+        foreach($condicionesUsuario as $valor){
+            $stringErrores.= $this->$valor($mensajesClave[$contador], $clave, $parametrosClave[$contador]);
+            $contador++;
+        }
+        if($stringErrores==""){
+            $idUsuario=$_POST['usuarioCambio'];
+            if($_SESSION['idRol']!=1){
+                if($idUsuario==$_SESSION['id']){
+                    $resultado=$this->modelo->actualizar($idUsuario, $usuario, $clave);
+                    if($resultado!=""){
+                        $this->view->mensaje = $resultado;
+                        $this->mostrarActualizacion();
+                        exit();
+                    }
+                    $this->modelo->cambioDeUsuarioYClaveRealizado($idUsuario);
+                    header('Location: /main');
+                    exit();
+                }
+            }
+          
+           exit();
+        }
+        $this->view->mensaje=$stringErrores;
+        $this->mostrarActualizacion();
+    }
+    
+
+    /* funciones privadas*/
+    private function vacio($mensaje, $data, $condicion){
+        return $data==""? $mensaje:"";
+    }
+    private function longitud($mensaje, $data, $condicion){
+        return strlen($data)>$condicion?"":$mensaje;
+    }
+    private function limpiarCadena($cadena){
+        $cadena=rtrim($cadena);
+        $cadena=stripslashes($cadena);
+        $cadena=htmlspecialchars($cadena);
+        return $cadena;
+    }
+    function cuentaMaestro(){
+        echo var_dump($_POST);
+    }
+}

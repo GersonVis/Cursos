@@ -1,9 +1,81 @@
 /*Estilos esteticos*/
-.divActualizarCuentaDebajo{
-    position: absolute;
+.divActualizarCuentaDebajo {
+    grid-column: 1/3;
+    grid-row: 1/1;
     width: 100%;
     height: 100%;
-    background-color: red;
+    
+}
+
+#imagenAsomandoseDAC {
+    width: 360px;
+    height: 160px;
+    animation-name: fotogramaImagenAsomandoseDAC;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: step-end;
+    animation-direction: alternate-reverse;
+    animation-delay: 0s;
+}
+
+@keyframes fotogramaImagenAsomandoseDAC {
+    33% {
+        transform: translateX(-120px);
+    }
+    66% {
+        transform: translateX(-240px);
+    }
+    100% {
+        transform: translateX(-360px);
+    }
+}
+
+#divImagenAnimadaADAC {
+    width: 120px;
+    height: 160px;
+    overflow: hidden;
+    position: absolute;
+    right: 0;
+    top: 25%;
+    transform: translateX(99%);
+}
+#divImagenAnimadaADACRoja{
+    width: 120px;
+    height: 160px;
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+    top: 45%;
+    transform: translateX(-99%) scaleX(-1);
+}
+#divImagenAnimadaADACAzul{
+    width: 120px;
+    height: 160px;
+    overflow: hidden;
+    position: absolute;
+    right: 0;
+    top: 45%;
+    transform: translateX(99%);
+}
+#divImagenAnimadaADACAmarilla{
+    width: 120px;
+    height: 160px;
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+    top: 25%;
+    transform: translateX(-99%) scaleX(-1);
+}
+#divImagenAnimadaADACAmarilla>img{
+    animation-delay: 1.5s;
+}
+#divImagenAnimadaADACAzul>img{
+    animation-delay: 1s;
+    animation-direction: alternate;
+}
+#divImagenAnimadaADACRoja>img{
+    animation-delay: 1.2s;
+    animation-direction: alternate;
 }
 /*fin estilos esteticos*/
 body {
@@ -13,9 +85,18 @@ body {
     background-color: var(--color-tercero);
 }
 
-.divActualizarCuenta {
-    width: 500px;
+.divActualizarCuentaPadre {
+    width: 480px;
     height: 90%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: minmax(100px, auto);
+    position: relative;
+}
+
+.divActualizarCuenta {
+    grid-column: 1/3;
+    grid-row: 1/1;
     border-radius: 13px;
     border: 1px var(--color-primario) solid;
     position: relative;
@@ -132,7 +213,10 @@ body {
     align-items: center;
 
 }
-
+.empresaDAC{
+    font-size: 8pt;
+    color: #d7d7d7;
+}
 #botonAdelante>img {
     position: relative;
     right: 0;
@@ -151,9 +235,11 @@ body {
     35% {
         transform: rotateZ(-10deg) translateY(-30px);
     }
+
     53% {
         transform: rotateZ(0deg) translateY(-20px);
     }
+
     70% {
         transform: rotateZ(30deg) translateY(-40px);
     }

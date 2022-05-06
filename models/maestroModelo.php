@@ -265,4 +265,5 @@ class maestroModelo extends Model
 
     return $informacion;
   }
+  
 }

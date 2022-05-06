@@ -13,6 +13,7 @@ var idOpcionSeleccionada = ""
 var opcionSubMenu=""
 var instructoresSeleccionados={}
 var urlEnlazada="/curso"
+var idMaestro=0;
 //fin variables globales
 function metodoActualizarPanel(){
     contenedorOpcionesDirecto.innerHTML=""

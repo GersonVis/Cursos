@@ -92,5 +92,8 @@ class Database
         return 'text';
     }
   }
- 
+ function codigosDeError($codigo){
+    $mensajesDeError=array(1062=>"Este nombre de usuario no se encuentra disponible");
+    return $mensajesDeError[$codigo];
+ }
 }
