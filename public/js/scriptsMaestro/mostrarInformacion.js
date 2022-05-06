@@ -15,6 +15,7 @@ botonMostrarDatos.addEventListener('click', function () {//evento del submenu ac
     clickMostrarDatos(this, opcionSeleccionada.attributes.idsql.value)
 })
 async function clickMostrarDatos(elemento, id) {
+    
     let datosCargados=await actualizarInformacion(id)
     if(datosCargados){
         let botonesEditar = document.querySelectorAll('.botonEditarInformacion')
@@ -37,8 +38,11 @@ function agregarEvento(elementos, funcionAgregar, evento="click"){
         })
     })
 }
+
 async function solicitarPorId(id) {
     datos = await fetch(urlBase +"/"+id)
+   //console.log(datos.text())
+    //datos.text()
     return datos.json()
 }
 async function actualizarInformacion(id) {
@@ -66,7 +70,7 @@ function interfazDatoIndividuo(etiqueta, dato, identificadorFormulario, tipo, ac
     elemento.setAttribute("opciones", JSON.stringify(datosEnlazados))
     elemento.id=opcionSeleccionada.attributes.idsql.value
     elemento.accion=function (datos){
-        actualizarRegistro(urlBase+"/actualizar", datos.id, datos.nombreColumna, datos.valorNuevo)
+        actualizarRegistro(urlBase+"/actualizarValor", datos.id, datos.nombreColumna, datos.valorNuevo)
     }
 
     prue=elemento
@@ -79,6 +83,7 @@ async function actualizarRegistro(url, id, nombreColumna, valorNuevo){
     data.append('columna', nombreColumna)
     data.append('nuevo', valorNuevo)
     respuesta=await consulta(url, data)
+    alert("acualizar")
     console.log(respuesta.text())
     if(respuesta.status=="200"){
         alert("Registro actualizado")

@@ -150,4 +150,22 @@ class SessionModelo extends Model
         $consulta->execute();
         return true;
     }
+    function cuentaEnlazadaAMaestro($idMaestro){
+      $sqlConsulta = "select maestrocuenta.idUsuario from maestro join maestrocuenta on maestro.id=maestrocuenta.idMaestro where maestro.id=$idMaestro;";
+      $conexion = $this->bd->conectar();
+      $consulta = $this->bd->tiposDeDatoConsulta($conexion, $sqlConsulta);
+      return $consulta;
+    }
+    
+    function actualizarValor($datos)
+    {
+      $conexion = $this->bd->conectar();
+      if (!$consulta = $conexion->prepare("update usuario set {$datos['columna']}=? where id=?")) {
+        echo "error";
+        return false;
+      }
+      $consulta->bind_param("ss", $datos['nuevo'], $datos['id']);
+      $consulta->execute();
+      return true;
+    }
 }

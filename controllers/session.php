@@ -145,6 +145,26 @@ class Session extends Controller
         return $cadena;
     }
     function cuentaMaestro(){
+       $idMaestro=$_POST["idMaestro"];
+       $respuesta=$this->modelo->cuentaEnlazadaAMaestro($idMaestro);
+       $cuenta=$this->modelo->obtenerInformacion($respuesta[0]['idUsuario']['valor']);
+       unset($cuenta[0]["idRol"]);
+       echo json_encode($cuenta);
+      // echo json_encode($cuenta)."enviado";
+    }
+    function actualizarValor(){
+        $arrayDatos=array();
+        $idMaestro=$_POST['id'];
+        $respuesta=$this->modelo->cuentaEnlazadaAMaestro($idMaestro);
+        $arrayDatos['id']=$respuesta[0]['idUsuario']['valor'];
+        $arrayDatos['columna']=$_POST['columna'];
+        $arrayDatos['nuevo']=$_POST['nuevo'];
         echo var_dump($_POST);
+        if(!$this->modelo->actualizarValor($arrayDatos)){
+            http_response_code(404);
+            echo "no se pudo actualizar";
+            exit();
+        }
+        echo "actualizado correctamente";
     }
 }

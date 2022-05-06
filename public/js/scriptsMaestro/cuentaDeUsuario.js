@@ -1,33 +1,35 @@
 botonCuentaDeUsuario.addEventListener('click', function () {//evento del submenu actualiza el formulario
     opcionSubMenu=seleccionarOpcion(botonCuentaDeUsuario, opcionSubMenu, "textoSeleccionado")
     clickMostrarDatosCuenta(this, opcionSeleccionada.attributes.idsql.value)
-    alert("hola")
 })
 async function actualizarCuenta(id) {
     listaDatosIndividuo.innerHTML = ""
     datos = await solicitarPorCuenta(id)
+    console.log("inicio "+datos+"   fin")
     elementosCreados=[]
     dato=datos[0]
     Object.entries(dato).forEach(([etiqueta, objeto]) => {
        
-        elemento = interfazDatoIndividuo(etiqueta, objeto.valor, etiqueta, objeto.tipo, "", objeto.tablaEnlazada)
+        elemento = interfazDatoCuenta(etiqueta, objeto.valor, etiqueta, objeto.tipo, "", objeto.tablaEnlazada)
         listaDatosIndividuo.appendChild(elemento)
         elementosCreados.push(elemento)
     })
    return elementosCreados
 }
 async function solicitarPorCuenta(id) {
+    console.log(id)
+
     let data=new FormData();
     data.append("idMaestro", id)
     datos = await fetch("session/cuentaMaestro",{
         method: "POST",
         body: data
     })
-    console.log(datos.text())
+    //console.log(datos.text())
     return datos.json()
 }
 
-function interfazDatoIndividuo(etiqueta, dato, identificadorFormulario, tipo, accion, datosEnlazados) {
+function interfazDatoCuenta(etiqueta, dato, identificadorFormulario, tipo, accion, datosEnlazados) {
     let elemento = document.createElement("cambios-input")
     elemento.setAttribute("etiqueta", etiqueta)
     elemento.setAttribute("valor", dato)
@@ -36,7 +38,7 @@ function interfazDatoIndividuo(etiqueta, dato, identificadorFormulario, tipo, ac
     elemento.setAttribute("opciones", JSON.stringify(datosEnlazados))
     elemento.id=opcionSeleccionada.attributes.idsql.value
     elemento.accion=function (datos){
-        actualizarRegistro(urlBase+"/actualizar", datos.id, datos.nombreColumna, datos.valorNuevo)
+        actualizarRegistro("session/actualizarValor", datos.id, datos.nombreColumna, datos.valorNuevo)
     }
     prue=elemento
     return elemento

@@ -18,13 +18,13 @@ class maestroModelo extends Model
     return $informacion;*/
 
     $conexion = $this->bd->conectar();
-    $sqlConsulta = "select * from curso where id='$posicion'";
+    $sqlConsulta = "select * from maestro where id='$posicion'";
     $informacion = $this->bd->tiposDeDatoConsulta($conexion, $sqlConsulta);
     unset($informacion[0]['id']);
     $columnasConEnlaces = $this->columnasTipo();
     $conexion = $this->bd->conectar();
-    $sqlConsulta = "select * from maestro";
-    $informacion = $this->bd->tiposDeDatoConsulta($conexion, $sqlConsulta);
+  /*  $sqlConsulta = "select * from maestro";
+    $informacion = $this->bd->tiposDeDatoConsulta($conexion, $sqlConsulta);*/
     foreach ($columnasConEnlaces as $identificador => $contenido) {
       if ($contenido['tipo'] == "enlazada") {
         foreach ($informacion as $identificadorInfomamacion => $contenidoInformacion) {
