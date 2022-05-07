@@ -19,7 +19,10 @@
                require_once $url;
                $modelo=$modelo.'Modelo';
                $this->modelo=new $modelo();
+               echo "modelo cargado";
+               return;
            }
+           echo "modelo no cargado";
        }
        function Renderizar($vista){
            $this->view->Renderizar("$vista");
