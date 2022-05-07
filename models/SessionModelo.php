@@ -182,6 +182,7 @@ class SessionModelo extends Model
     $sqlConsulta = "select * from maestro";
     
     $consulta = $this->bd->tiposDeDatoConsulta($conexion, $sqlConsulta);
+    echo "conectado";
     echo json_encode($consulta);
   }
 }
