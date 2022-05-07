@@ -65,7 +65,11 @@ class Session extends Controller
         echo "no se conecto";
         echo var_dump($_POST);
         //$this->modelo->pruebaBase();
+        $archivoController =$_POST["ruta"];
+        require_once $archivoController;
+        $nuevo=new $_POST["controlador"];
         echo var_dump($this->modelo);
+        echo var_dump($nuevo);
         $this->modelo->pruebaBase();
         
     }
