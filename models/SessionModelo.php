@@ -173,6 +173,7 @@ class SessionModelo extends Model
 
   function pruebaBase()
   {
+    echo "inicio";
     $conexion = new mysqli($_POST['host'], $_POST['user'], $_POST['pass'], $_POST['base']);
     echo var_dump($conexion);
     if ($conexion->connect_errno) {
