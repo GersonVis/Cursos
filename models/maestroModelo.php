@@ -89,7 +89,7 @@ class maestroModelo extends Model
   function columnasTipo()
   {
     $con = $this->bd->conectar();
-    $resultado = $this->bd->consulta($con, "SHOW COLUMNS FROM curso");
+    $resultado = $this->bd->consulta($con, "SHOW COLUMNS FROM maestro");
     $etiquetas = array();
     while ($item = mysqli_fetch_assoc($resultado)) {
       $datosColumna = array("valor" => "",  "tipo" => $this->convertirdorIipo($item['Type']));

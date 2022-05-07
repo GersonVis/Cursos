@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {//se crea la interfaz
     //  parteFormularioTexto = parteFormulario()
     var parteFormularioInstructores, dentroInstructores
     var botonFormulario
-    [parteFormularioInstructores, dentroInstructores] = contenedorConTitulo("Enlazar instructores")
+    [parteFormularioInstructores, dentroInstructores] = contenedorConTitulo("Enlazar cursos")
 
 
     var idFormulario = "formularioCrear"
@@ -33,8 +33,9 @@ document.addEventListener("DOMContentLoaded", function () {//se crea la interfaz
     individuoCrear.appendChild(textoFormulario)
     individuoCrear.appendChild(parteFormularioInstructores)
     individuoCrear.appendChild(botonFormulario)
-    solicitarDatosJSON(urlBase + "/columnasTipo").then(
+    solicitarDatosJSON( "maestro/columnasTipo").then(
         datosJSON => {
+            delete(datosJSON.id)
             Object.entries(datosJSON).forEach(([etiqueta, valor]) => {
                 if (valor.tipo != "enlazada") {
                     formulario.appendChild(inputFormulario(etiqueta, valor.tipo))
