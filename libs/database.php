@@ -18,6 +18,7 @@ class Database
   {
     $conexion = new mysqli( $this->host, $this->user, $this->password, $this->db);
     if ($conexion->connect_errno) {
+      echo "no se pudo conectar";
       exit();
       return '';
     }
