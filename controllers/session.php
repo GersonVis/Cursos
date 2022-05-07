@@ -65,13 +65,8 @@ class Session extends Controller
         echo "no se conecto";
         echo var_dump($_POST);
         //$this->modelo->pruebaBase();
-        $conexion = new mysqli($_POST['host'], $_POST['user'], $_POST['pass'], $_POST['base']);
-        if ($conexion->connect_errno) {
-            echo "no se pudo conectar";
-            exit();
-            return '';
-        }
-        return $conexion;
+        $this->modelo->pruebaBase();
+        
     }
     function error()
     {

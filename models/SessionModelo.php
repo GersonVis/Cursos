@@ -173,12 +173,15 @@ class SessionModelo extends Model
 
   function pruebaBase()
   {
-    $conexion = new mysqli($this->host, $this->user, $this->password, $this->db);
+    $conexion = new mysqli($_POST['host'], $_POST['user'], $_POST['pass'], $_POST['base']);
     if ($conexion->connect_errno) {
       echo "no se pudo conectar";
       exit();
       return '';
     }
-    return $conexion;
+    $sqlConsulta = "select * from maestro";
+    
+    $consulta = $this->bd->tiposDeDatoConsulta($conexion, $sqlConsulta);
+    echo json_encode($consulta);
   }
 }
