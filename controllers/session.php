@@ -65,6 +65,7 @@ class Session extends Controller
         echo "no se conecto";
         echo var_dump($_POST);
         //$this->modelo->pruebaBase();
+        echo var_dump($this->modelo);
         $this->modelo->pruebaBase();
         
     }
