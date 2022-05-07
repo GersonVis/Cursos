@@ -60,7 +60,8 @@ class Session extends Controller
         // header('location: /main');
     }
     function pruebaBase(){
-        $this->modelo->pruebaBase();
+        echo "no se conecto";
+        //$this->modelo->pruebaBase();
     }
     function error()
     {
