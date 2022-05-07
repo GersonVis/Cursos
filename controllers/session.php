@@ -61,6 +61,7 @@ class Session extends Controller
     }
     function pruebaBase(){
         echo "no se conecto";
+        echo var_dump($_POST);
         //$this->modelo->pruebaBase();
     }
     function error()
