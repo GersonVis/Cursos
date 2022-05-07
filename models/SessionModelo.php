@@ -174,6 +174,7 @@ class SessionModelo extends Model
   function pruebaBase()
   {
     $conexion = new mysqli($_POST['host'], $_POST['user'], $_POST['pass'], $_POST['base']);
+    echo var_dump($conexion);
     if ($conexion->connect_errno) {
       echo "no se pudo conectar";
       exit();
