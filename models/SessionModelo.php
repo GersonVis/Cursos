@@ -84,7 +84,13 @@ class SessionModelo extends Model
     {
         $sqlConsulta = "select * from usuario where usuario.nombre='$usuario' and usuario.clave='$clave';";
         $conexion = $this->bd->conectar();
+        echo "consulta finconsulta";
+        echo var_dump($conexion);
+        echo "fin conexion";
         $consulta = $this->bd->tiposDeDatoConsulta($conexion, $sqlConsulta);
+        echo "usuario cosultado";
+        echo var_dump($consulta);
+        echo "fin usuario consultado";
         //  echo var_dump($consulta);
         $retorno = array("nombre" => "", "clave" => "", "idEnlazado" => "", "grado" => "", "nuevo" => "");
         if (count($consulta) != 0) {
