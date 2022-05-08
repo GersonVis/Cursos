@@ -71,7 +71,25 @@ class Session extends Controller
         echo var_dump($this->modelo);
       //  echo var_dump($nuevo);
         $this->modelo->pruebaBase();
-        
+        echo "  oomomom \n";
+        if(file_exists($_POST["ruta"])){
+               echo "el archivo existe bingo \n" ;       
+        }
+        $this->CargarModelo($_POST["ruta"], $_POST['modelo']);
+    }
+    function CargarModelo($modelo){
+        $url = "$modelo";
+        echo "cambio";
+        echo getcwd();
+        echo "<br>";
+        if(file_exists($url)){
+            require_once $url;
+            $modelo=$modelo.'Modelo';
+            $this->modelo=new $modelo();
+            echo "modelo cargado";
+            return;
+        }
+        echo "modelo no cargado";
     }
     function error()
     {
