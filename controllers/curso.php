@@ -9,13 +9,29 @@ class Curso extends Controller
 
         parent::__construct();
         $this->view->nombre = "curso"; //declarar el nombre del controlador en el que estamos, se usa en las vistas
+
+        echo "carga completa";
     }
     function Renderizar($vista)
     {
-        $this->view->instructores = $this->modelo->todos();
-        $this->view->columnas = $this->modelo->columnas();
-        unset($this->view->columnas[0]);
-        if(!isset($_SESSION['idRol'])){
+
+
+
+
+      //  $this->view->instructores = $this->modelo->todos();
+
+
+
+
+
+        //$this->view->columnas = $this->modelo->columnas();
+
+
+
+       // unset($this->view->columnas[0]);
+        
+       
+       if(!isset($_SESSION['idRol'])){
             header("Location: /session");
             exit();
         }
