@@ -21,6 +21,9 @@ class Database
       exit();
       return '';
     }
+    echo "conexion:";
+    echo var_dump($conexion);
+    echo "fin conexion";
     return $conexion;
   }
   function consulta($conexion, $sqlConsulta)
