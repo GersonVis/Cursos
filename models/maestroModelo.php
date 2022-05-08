@@ -46,12 +46,12 @@ class maestroModelo extends Model
     $conexion = $this->bd->conectar();
    // echo var_dump($conexion);
     //echo "fin conexion";
-    $sqlConsulta = "select * from maestro limit 10";
+    $sqlConsulta = "select * from maestro limit 2";
     $informacion = $this->bd->tiposDeDatoConsulta($conexion, $sqlConsulta);
     echo "<br></br>";
-    echo var_dump($informacion);
+   echo var_dump($informacion);
      echo "fin informacion conexion";
-    echo json_encode($informacion);
+    echo json_encode(array("nuevodato"=>"gerson"));
      return  "";
   }
 
