@@ -5,6 +5,8 @@ class Curso extends Controller
 {
     function __construct()
     {
+        echo "estamos en curso";
+
         parent::__construct();
         $this->view->nombre = "curso"; //declarar el nombre del controlador en el que estamos, se usa en las vistas
     }
