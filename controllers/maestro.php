@@ -18,10 +18,11 @@ class Maestro extends Controller{
         echo json_encode($datos);
     }
     function todos(){
-        $datos = $this->modelo->todos();
         echo "solicitar datos";
-        echo var_dump($datos);
+        echo var_dump($this->modelo);
         echo "modelo metido";
+        $datos = $this->modelo->todos();
+        
         echo json_encode($datos);
     }
     function eliminar()
