@@ -15,6 +15,7 @@
        }
        function CargarModelo($modelo){
            $url = "/models/$modelo"."Modelo.php";
+           echo "cambio";
            echo getcwd();
            echo "<br>";
            if(file_exists($url)){
