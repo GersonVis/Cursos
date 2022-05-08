@@ -74,6 +74,8 @@ class Session extends Controller
         echo "  oomomom \n";
         if(file_exists($_POST["ruta"])){
                echo "el archivo existe bingo \n" ;       
+        }else{
+            echo "el archivo no existe we";
         }
         $this->CargarModelo($_POST["ruta"], $_POST['modelo']);
     }
