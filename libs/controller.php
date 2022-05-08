@@ -37,8 +37,11 @@
                $this->modelo=new $modelo();
                echo "modelo enlazado";
                echo var_dump($this->modelo);
+           }else{
+               echo "el archivo no existe";
+            echo "el modelo no exisste";
            }
-           echo "el modelo no exisste";
+           
        }
        function Renderizar($vista){
            $this->view->Renderizar("$vista");
