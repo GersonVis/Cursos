@@ -29,7 +29,7 @@ class Session extends Controller
         $usuario = $_POST['usuario'];
         $clave = isset($_POST['clave']) ? $_POST['clave'] : "";
         $respuesta = $this->modelo->usuario($usuario, $clave);
-        echo var_dump($respuesta);
+      //  echo var_dump($respuesta);
       /*  $usuario = $_POST['usuario'];
         $clave = isset($_POST['clave']) ? $_POST['clave'] : "";
         if ($usuario != "" && $clave != "") {

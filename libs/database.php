@@ -17,6 +17,9 @@ class Database
   function conectar()
   {
     $conexion = new mysqli($this->host, $this->user, $this->password, $this->db);
+    echo "base de datos";
+    echo var_dump($conexion);
+    echo "fin base de datos";
     if ($conexion->connect_errno) {
       exit();
       return '';
