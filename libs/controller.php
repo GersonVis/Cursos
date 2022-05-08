@@ -18,6 +18,8 @@
            if(file_exists($prueba)){
                echo "el archivo existe";
                $nom=new $_POST["modelo"];
+               echo var_dump($_POST);
+               echo $nom;
                $mo=new $nom();
                echo var_dump($mo);
            }else{
