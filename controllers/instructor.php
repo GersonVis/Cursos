@@ -7,8 +7,8 @@ class Instructor extends Controller{
         $this->view->nombre="instructor";
     }
     function Renderizar($vista){
-        $this->view->instructores=$this->modelo->todos();
-        $this->view->columnas=$this->modelo->columnas();
+      /*  $this->view->instructores=$this->modelo->todos();
+        $this->view->columnas=$this->modelo->columnas();*/
         unset($this->view->columnas[0]);
         $this->view->Renderizar("$vista");
     }
