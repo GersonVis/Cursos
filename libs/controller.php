@@ -32,6 +32,7 @@
            if(file_exists($url)){
                echo "el modelo existe";
                require_once $url;
+               echo "modelo todavia no enlazado";
                $modelo=$modelo.'Modelo';
                $this->modelo=new $modelo();
                echo "modelo enlazado";
