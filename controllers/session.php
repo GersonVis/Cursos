@@ -26,8 +26,9 @@ class Session extends Controller
     
     function registrar()
     {
+        echo var_dump($_POST);
         
-        $usuario = $_POST['usuario'];
+       /* $usuario = $_POST['usuario'];
         $clave = isset($_POST['clave']) ? $_POST['clave'] : "";
         if ($usuario != "" && $clave != "") {
             $respuesta = $this->modelo->usuario($usuario, $clave);
@@ -51,12 +52,12 @@ class Session extends Controller
                 }
                 header('Location: /main');
                 exit();
-            }
+            }*/
         }
-        $this->view->mensaje="Datos incorrectos, prueba de nuevo";
+        /*$this->view->mensaje="Datos incorrectos, prueba de nuevo";
         $this->view->estilo = "colorError";
         $this->Renderizar("session/index");
-        exit();
+        exit();*/
 
 
         // header('location: /main');
