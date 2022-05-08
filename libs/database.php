@@ -33,17 +33,17 @@ class Database
   }
   function tiposDeDatoConsulta($conexion, $sqlConsulta)
   {
-    echo "asíendo consulta  $sqlConsulta  a";
+    //echo "asíendo consulta  $sqlConsulta  a";
     $resultado = $conexion->query($sqlConsulta);
     
     
     
-    
+    /*
    
     echo var_dump($resultado);
     echo "fin consutla";
 
-
+*/
 
     $datosColumna = $resultado->fetch_fields();
     $columnasAsociadas = array();
