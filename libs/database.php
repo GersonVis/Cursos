@@ -16,7 +16,7 @@ class Database
   }
   function conectar()
   {
-    $conexion = new mysqli('localhost', $this->user, $this->password, $this->db);
+    $conexion = new mysqli($this->host, $this->user, $this->password, $this->db);
     if ($conexion->connect_errno) {
       exit();
       return '';
