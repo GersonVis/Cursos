@@ -25,7 +25,22 @@ class CursoModelo extends Model
       }
     }
     return $informacion;
+    /* $resultado = $conexion->query($sqlConsulta);
+    $datosColumna = $resultado->fetch_fields();
+    $columnasAsociadas = array();
+    foreach ($datosColumna as $valor) {
+      $columnasAsociadas[$valor->name] = $this->tiposDeDato($valor->type);
+    }
 
+    $informacion = array();
+    while ($item = mysqli_fetch_assoc($resultado)) {
+      $itemFabricado = array();
+      foreach ($item as $etiqueta => $valor) {
+        $itemFabricado[$etiqueta] = array("valor" => $valor, "tipo" => $columnasAsociadas[$etiqueta]);
+      }
+      $informacion[] = $itemFabricado;
+    }*/
+    //return $informacion;
   }
   function tiposDeDato($valor)
   {

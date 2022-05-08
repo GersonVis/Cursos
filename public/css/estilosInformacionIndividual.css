@@ -23,9 +23,7 @@
 
 .individuoDivision  {
     height: 100%;
-   
 }
-
 .individuoDivisionInformacion{
     width: 100%;
     overflow: auto;
@@ -90,6 +88,6 @@
     width: 100%;
 }
 #listaDatosIndividuo{
-    padding-top: 50px;
+    padding-top: 0px;
     padding-bottom: 20px;
 }

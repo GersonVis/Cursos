@@ -117,7 +117,7 @@ $botonSalir = new BotonSalir();
                 </li>
             </div>
             <div id="informacionIndividuo" style="padding: 0 0 0 0;" class="individuoDivision posicionRelativa ocuparDisponible colorSecundario redondearDos barras">
-                <div></div>
+                <div style="height: 10%"></div>
                 <ul id="listaDatosIndividuo" class="flexCentradoC listaSinEstilo">
                     <?php
                     for ($t = 0; $t < 5; $t++) {

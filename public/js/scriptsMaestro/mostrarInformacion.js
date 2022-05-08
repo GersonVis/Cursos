@@ -5,7 +5,6 @@ var botonesEditar = document.querySelectorAll('.botonEditarInformacion')
 //const botonesMenuIndividuo=document.querySelectorAll('.')
 
 botonCerrarInformacion.addEventListener('click', function () {
-    mostrarPorCategoria(listaSecciones.value)
     cerrarInformacion(this)
 })
 opcionSubMenu = seleccionarOpcion(botonMostrarDatos, opcionSubMenu, "textoSeleccionado")
@@ -51,8 +50,12 @@ async function actualizarInformacion(id) {
     elementosCreados = []
     dato = datos[0]
     Object.entries(dato).forEach(([etiqueta, objeto]) => {
+<<<<<<< HEAD
 
         elemento = interfazDatoIndividuo(etiqueta, objeto.valor, etiqueta, objeto.tipo, "", objeto.tablaEnlazada)
+=======
+        elemento = interfazDatoIndividuo(etiqueta, objeto.valor, etiqueta, objeto.tipo)
+>>>>>>> parent of f0251d5 (master)
         listaDatosIndividuo.appendChild(elemento)
         elementosCreados.push(elemento)
     })
@@ -60,6 +63,7 @@ async function actualizarInformacion(id) {
 
 }
 
+<<<<<<< HEAD
 prue = ""
 function interfazDatoIndividuo(etiqueta, dato, identificadorFormulario, tipo, accion, datosEnlazados) {
     let elemento = document.createElement("cambios-input")
@@ -95,6 +99,31 @@ async function actualizarRegistro(url, id, nombreColumna, valorNuevo) {
     }
 
 }
+=======
+
+function interfazDatoIndividuo(etiqueta, dato, identificadorFormulario, tipo) {
+    elemento = document.createElement("li")
+    elemento.classList.add("datoPanelIndividuo")
+    elemento.classList.add("flexCentradoR")
+    elemento.innerHTML = `<p class="etiquetaDato">${etiqueta}</p>
+    <div class="contenedorEditar colorCuarto redondearDos ocuparDisponible">
+        <input name="${identificadorFormulario}" type="${tipo}" class="textoIndividuo colorCuarto redondearDos " disabled value="${dato}">
+        <button class="botonEditarInformacion circulo colorPrimario flexCentradoR" >
+            <img src="/public/iconos/editar.png" alt="" class="imagenEditar ">
+        </button>
+        <div class="cajaOpcionesEdicion flexCentradoR">
+            <button class="aceptarCambio botonAccion circulo colorPrimario flexCentradoR">
+               <img src="/public/iconos/cheque.png" alt="" class="imagenEditar ">
+             </button>
+            <button class="cancelarCambio botonAccion circulo colorPrimario flexCentradoR">
+               <img src="/public/iconos/cerrar.png" alt="" class="imagenEditar ">
+            </button>
+        </div>  
+    </div>`
+    return elemento
+}
+
+>>>>>>> parent of f0251d5 (master)
 function extraerHijo(padre, posicion) {
     return padre.childNodes[posicion]
 }

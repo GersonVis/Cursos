@@ -1,7 +1,7 @@
 instructoresEnlace = {}
 
 document.addEventListener("DOMContentLoaded", function () {//se crea la interfaz para poder crear un curso o instructor
-   // metodoActualizarPanel()
+    metodoActualizarPanel()
     individuoCrear.innerHTML = ""
     /*interfaz del formulario*/
     //  parteFormularioTexto = parteFormulario()

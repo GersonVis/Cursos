@@ -5,7 +5,6 @@ crearInstructor.addEventListener('click', function () {
    
 })
 botonCerrarCrear.addEventListener('click', function(){
-    
     ocultarElemento(sectionCrearInstructor)
 })
 

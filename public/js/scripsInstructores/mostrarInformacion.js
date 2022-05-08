@@ -5,7 +5,6 @@ var botonesEditar = document.querySelectorAll('.botonEditarInformacion')
 //const botonesMenuIndividuo=document.querySelectorAll('.')
 
 botonCerrarInformacion.addEventListener('click', function () {
-    metodoActualizarPanel()
     cerrarInformacion(this)
 })
 opcionSubMenu=seleccionarOpcion(botonMostrarDatos, opcionSubMenu, "textoSeleccionado")
@@ -47,8 +46,7 @@ async function actualizarInformacion(id) {
     elementosCreados=[]
     dato=datos[0]
     Object.entries(dato).forEach(([etiqueta, objeto]) => {
-       
-        elemento = interfazDatoIndividuo(etiqueta, objeto.valor, etiqueta, objeto.tipo, "", objeto.tablaEnlazada)
+        elemento = interfazDatoIndividuo(etiqueta, objeto.valor, etiqueta, objeto.tipo)
         listaDatosIndividuo.appendChild(elemento)
         elementosCreados.push(elemento)
     })
@@ -56,6 +54,7 @@ async function actualizarInformacion(id) {
 
 }
 
+<<<<<<< HEAD
 prue=""
 function interfazDatoIndividuo(etiqueta, dato, identificadorFormulario, tipo, accion, datosEnlazados) {
     let elemento = document.createElement("cambios-input")
@@ -69,23 +68,31 @@ function interfazDatoIndividuo(etiqueta, dato, identificadorFormulario, tipo, ac
         actualizarRegistro(urlBase+"/actualizar", datos.id, datos.nombreColumna, datos.valorNuevo)
     }
     prue=elemento
+=======
+
+function interfazDatoIndividuo(etiqueta, dato, identificadorFormulario, tipo) {
+    elemento = document.createElement("li")
+    elemento.classList.add("datoPanelIndividuo")
+    elemento.classList.add("flexCentradoR")
+    elemento.innerHTML = `<p class="etiquetaDato">${etiqueta}</p>
+    <div class="contenedorEditar colorCuarto redondearDos ocuparDisponible">
+        <input name="${identificadorFormulario}" type="${tipo}" class="textoIndividuo colorCuarto redondearDos " disabled value="${dato}">
+        <button class="botonEditarInformacion circulo colorPrimario flexCentradoR" >
+            <img src="/public/iconos/editar.png" alt="" class="imagenEditar ">
+        </button>
+        <div class="cajaOpcionesEdicion flexCentradoR">
+            <button class="aceptarCambio botonAccion circulo colorPrimario flexCentradoR">
+               <img src="/public/iconos/cheque.png" alt="" class="imagenEditar ">
+             </button>
+            <button class="cancelarCambio botonAccion circulo colorPrimario flexCentradoR">
+               <img src="/public/iconos/cerrar.png" alt="" class="imagenEditar ">
+            </button>
+        </div>  
+    </div>`
+>>>>>>> parent of f0251d5 (master)
     return elemento
 }
-async function actualizarRegistro(url, id, nombreColumna, valorNuevo){
-    let data=new FormData()
-    let respuesta=""
-    data.append('id', id)
-    data.append('columna', nombreColumna)
-    data.append('nuevo', valorNuevo)
-    respuesta=await consulta(url, data)
-    console.log(respuesta.text())
-    if(respuesta.status=="200"){
-        alert("Registro actualizado")
-        return true
-    }
-    alert("No se pudo actualzar")
-    return false
-}
+
 function extraerHijo(padre, posicion) {
     return padre.childNodes[posicion]
 }

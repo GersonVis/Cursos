@@ -6,7 +6,7 @@
 }
 
 #informacionIndividuo {
-  
+    padding-top: 15%;
 
 }
 
@@ -22,7 +22,6 @@
 
 #listaDatosIndividuo {
     justify-content: initial;
-  
 }
 
 .etiquetaDato {

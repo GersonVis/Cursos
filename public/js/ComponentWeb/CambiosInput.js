@@ -27,13 +27,11 @@ class CambiosInput extends HTMLElement {
         })
         return botonActualizar
     }
-    textoRegistro(padre, valor, tipo, editable) {//inputtext para modificar los datos en mysql
+    textoRegistro(padre, valor, tipo) {//inputtext para modificar los datos en mysql
         let textoRegistro = document.createElement("input")
         textoRegistro.type = tipo
         textoRegistro.placeholder = "No tiene valor asignado"
         textoRegistro.value = valor
-        console.log(editable)
-        textoRegistro.disabled = editable
         agregarClases(textoRegistro, ["ciInputCambiar", "redondearDos"])
         textoRegistro.addEventListener("mousedown", function () {
             if (textoEditarAnterior != "") {
@@ -46,24 +44,25 @@ class CambiosInput extends HTMLElement {
         })
         return textoRegistro
     }
-    listaOpciones(padre, valor, opciones, formaDeAcceso, activado) {
-        let accesoUno = formaDeAcceso[0]
-        let accesoDos = formaDeAcceso[1]
+    listaOpciones(padre, valor, opciones, formaDeAcceso){
+        let accesoUno=formaDeAcceso[0]
+       
+        let accesoDos=formaDeAcceso[1]
         let elemento = document.createElement("select")
         agregarClases(elemento, ["ciInputCambiar", "redondearDos"])
-        let opcionesContenedor = {}
-        opciones.forEach(dato => {
-            let id = dato[accesoUno[0]][accesoUno[1]]
-            let contenido = dato[accesoDos[0]][accesoDos[1]]
-            let opcion = document.createElement("option")
-            opcion.value = id
-            opcion.innerText = contenido
-            elemento.appendChild(opcion)
-            opcionesContenedor[id] = opcion
-
+        let opcionesContenedor={}
+        opciones.forEach(dato=>{
+           let id=dato[accesoUno[0]][accesoUno[1]]
+           let contenido=dato[accesoDos[0]][accesoDos[1]]
+           let opcion=document.createElement("option")
+           opcion.value=id
+           opcion.innerText=contenido
+           elemento.appendChild(opcion)
+           opcionesContenedor[id]=opcion
+           console.log(id+" "+contenido)
         })
-
-        opcionesContenedor[valor].selected = "true"
+        
+        opcionesContenedor[valor].selected="true"
         elemento.addEventListener("mousedown", function () {
             if (textoEditarAnterior != "") {
                 quitarClase(textoEditarAnterior, "seleccionado")
@@ -73,43 +72,36 @@ class CambiosInput extends HTMLElement {
             agregarClase(padre, "seleccionado")
             textoEditarAnterior = padre
         })
-        
         return elemento
     }
     renderizar() {
         let etiqueta = this.getAttribute("etiqueta")
         this.valor = this.getAttribute("valor") == "null" ? "" : this.getAttribute("valor")
         let tipo = this.getAttribute("tipo")
-        let activado = this.getAttribute("nivel") != undefined
+        
         this.innerHTML = '<label>' + etiqueta + '</label>'
         this.agregarClases(["divOF", "redondearDos", "posicionRelativa", "colorCuarto", "noSeleccionado"])
         //elementos creados aparte
-        if (tipo == "select" && this.getAttribute("opciones") != null) {
+        if (tipo == "select" && this.getAttribute("opciones")!=null) {
             //si el dato es un llave foranea crea las opciones disponibles de la llave foranea
-            let opciones = JSON.parse(this.getAttribute("opciones"))
-            let formaDeAcceso = JSON.parse(this.getAttribute("accederAJSON"))
+            let opciones=JSON.parse(this.getAttribute("opciones"))
+            let formaDeAcceso=JSON.parse(this.getAttribute("accederAJSON"))
             this.elementoCambio = this.listaOpciones(this, this.valor, opciones, formaDeAcceso)
-            this.elementoCambio.disabled=activado
             this.appendChild(this.elementoCambio)
         } else {
-            this.elementoCambio = this.textoRegistro(this, this.valor)
-            this.elementoCambio.disabled=activado
+            this.elementoCambio = this.textoRegistro(this, this.valor, tipo)
             this.appendChild(this.elementoCambio)
         }
-
         this.interfazAccionBoton = this.acccionBoton(this)
-        this.interfazAccionBoton.disabled=activado
         this.appendChild(this.interfazAccionBoton)
-
     }
     static get observedAttributes() {
-        return ['etiqueta', 'tipo', 'valor', 'opciones', 'accederAJSON', 'nivel']
+        return ['etiqueta', 'tipo', 'valor', 'opciones', 'accederAJSON']
     }
     connectedCallback() {
-        //  this.renderizar()
+      //  this.renderizar()
 
     }
-
     attributeChangedCallback(identificador, valorAntiguo, valorNuevo) {
         this.renderizar()
     }

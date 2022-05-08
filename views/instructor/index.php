@@ -33,9 +33,6 @@ $botonSalir = new BotonSalir();
     <link rel="stylesheet" href="/public/css/estilosBusqueda.css">
     <link rel="stylesheet" href="/public/css/estilosInstructoresAsociados.css">
     <link rel="stylesheet" href="/public/css/estilosenlazarInstructoresDisponibles.css">
-    <link rel="stylesheet" href="/public/css/listaSecciones.css">
-    <link rel="stylesheet" href="/public/css/estilosPanelSubirArchivo.css">
-    <link rel="stylesheet" href="/public/css/CambiosInput/CambiosInput.css">
 
 </head>
 
@@ -110,9 +107,9 @@ $botonSalir = new BotonSalir();
                     </ul>
                 </li>
             </div>
-            <div id="informacionIndividuo" class="individuoDivision ocuparDisponible barras colorSecundario redondearDos">
+            <div id="informacionIndividuo" class="individuoDivision ocuparDisponible colorSecundario redondearDos">
 
-                <ul id="listaDatosIndividuo" class="flexCentradoC listaSinEstilo posicionRelativa">
+                <ul id="listaDatosIndividuo" class="expandirAmbos flexCentradoC listaSinEstilo posicionRelativa">
                     <?php
                     for ($t = 0; $t < 5; $t++) {
                         echo $datoIndividuo->codigoHTML();
@@ -142,8 +139,6 @@ $botonSalir = new BotonSalir();
     </div>
 
     <script src="/public/js/scripsInstructores/funcionesUtiles.js"></script>
-    <script src="/public/js/ComponentWeb/CambiosInput.js"></script>
-    <script src="/public/js/scriptsMaestro/funcionesUtiles.js"></script>
 
 
     <!--en este script se encuentran las bases para adaptar la vista sin cambiar la logica-->

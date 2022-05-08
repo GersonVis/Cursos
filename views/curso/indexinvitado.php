@@ -27,6 +27,7 @@ $botonSalir = new BotonSalir();
     echo $datoIndividuo->estiloCSS();
     echo $botonSalir->estiloCSS();
     ?>
+    
     <link rel="stylesheet" href="/public/css/estilosPorDefecto.css">
     <link rel="stylesheet" href="/public/css/estilosInstructor.css">
     <link rel="stylesheet" href="/public/css/estilosInformacionIndividual.css">
@@ -34,10 +35,11 @@ $botonSalir = new BotonSalir();
     <link rel="stylesheet" href="/public/css/estilosBusqueda.css">
     <link rel="stylesheet" href="/public/css/estilosInstructoresAsociados.css">
     <link rel="stylesheet" href="/public/css/estilosenlazarInstructoresDisponibles.css">
-    <link rel="stylesheet" href="/public/css/listaSecciones.css">
+    <link rel="stylesheet" href="/public/css/estilosEnlazadoPrincipal.css">
+    <link rel="stylesheet" href="/public/css/estilosAsistencia.css">
     <link rel="stylesheet" href="/public/css/estilosPanelSubirArchivo.css">
-    <link rel="stylesheet" href="/public/css/CambiosInput/CambiosInput.css">
     <link rel="stylesheet" href="/public/css/Boton/estilosBotonAccion.css">
+   
 </head>
 
 <body>
@@ -114,9 +116,9 @@ $botonSalir = new BotonSalir();
                     </ul>
                 </li>
             </div>
-            <div id="informacionIndividuo" style="padding: 0 0 0 0;" class="individuoDivision posicionRelativa ocuparDisponible colorSecundario redondearDos barras">
-                <div></div>
-                <ul id="listaDatosIndividuo" class="flexCentradoC listaSinEstilo">
+            <div id="informacionIndividuoDerecha" class="">
+
+                <ul id="listaDatosIndividuo" class="">
                     <?php
                     for ($t = 0; $t < 5; $t++) {
                         echo $datoIndividuo->codigoHTML();
@@ -124,7 +126,7 @@ $botonSalir = new BotonSalir();
                     ?>
                 </ul>
                 <!--    <input type="submit" value="Guardar">-->
-                <div style="height: 2%"></div>
+
             </div>
             <button type="button" value="cerrar" id="botonCerrarInformacion" class="botonCerrar redondearDos colorPrimario posicionAbsoluta">Cerrar</button>
         </section>
@@ -141,9 +143,6 @@ $botonSalir = new BotonSalir();
         ?>
     </div>
 
-    <script src="/public/js/ComponentWeb/PanelSubirArchivo.js"></script>
-    <script src="/public/js/ComponentWeb/CambiosInput.js"></script>
-    <script src="/public/js/metodos/actualizarRegistro.js"></script>
     <script src="/public/js/scriptscurso/funcionesUtiles.js"></script>
     <script src="/public/js/interfaces/elementos.js"></script>
      
@@ -163,7 +162,7 @@ $botonSalir = new BotonSalir();
     <script src="/public/js/scriptscursoinvitado/liberacionCurso.js"></script>
   <!--  <script src="/public/js/scriptscurso/panelDeElementos.js"></script>-->
      <!--scripts que son componentes!-->
- 
+    <script src="/public/js/ComponentWeb/PanelSubirArchivo.js"></script>
     <script src="/public/js/ComponentWeb/BotonAccion.js"></script>
     <script>
         //creamos variables de session en javascript

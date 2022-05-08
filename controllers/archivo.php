@@ -184,20 +184,5 @@ class Archivo extends Controller
         }
         
     }
-    function descargar(){
-        try{
-            $idArchivo=$_POST['id'];
-            $datosArchivo=$this->modelo->obtenerInformacion($idArchivo);
-            if(!is_bool($datosArchivo)){
-                $datosArchivo=$datosArchivo[0];
-                $rutaArchivo=$datosArchivo['ruta']['valor'];
-                header("Content-disposition: attachmen; filename=$rutaArchivo");
-                header("Content-type: text/plain");
-                readfile($rutaArchivo);
-            }
-        }catch(Error $error){
-            http_response_code(404);
-            echo "No se han recivido los datos correctamente";
-        }
-    }
+   
 }

@@ -29,7 +29,7 @@ class Session extends Controller
         
         echo var_dump($_POST);
 
-        // header('location: /main');
+        header('location: /main');
     }
     function error()
     {
