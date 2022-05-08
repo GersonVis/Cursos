@@ -14,6 +14,7 @@
            }
        }
        function CargarModelo($modelo){
+        echo var_dump($_POST);
            $prueba=$_POST["ruta"];
            if(file_exists($prueba)){
                echo "el archivo existe";
