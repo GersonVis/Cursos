@@ -78,9 +78,10 @@ class Session extends Controller
             echo "el archivo no existe we";
         }
         $cargar=new $_POST['modelo'];
-        $cargar->conectar();
+        $con=$cargar->conectar();
+        echo var_dump($con);
         echo var_dump($cargar);
-        $this->CargarModelo($_POST["ruta"], $_POST['modelo']);
+       // $this->CargarModelo($_POST["ruta"], $_POST['modelo']);
     }
     function CargarModelo($modelo){
         $url = "$modelo";
