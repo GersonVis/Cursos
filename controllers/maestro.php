@@ -128,6 +128,9 @@ class Maestro extends Controller{
 
    function prueba(){
        echo "estamos en prueba ";
+       if(file_exists($_POST['ruta'])){
+         echo "el arhcivo no existe";
+       }
    }
 
 }
