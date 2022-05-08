@@ -52,8 +52,8 @@ class maestroModelo extends Model
    echo var_dump($informacion);
      echo "fin informacion conexion";
     echo json_encode(array("nuevodato"=>"gerson"));*/
-    echo json_encode($informacion);
-     return  "";
+    //echo json_encode($informacion);
+     return  $informacion;
   }
 
 
