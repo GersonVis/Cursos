@@ -124,6 +124,12 @@ class Maestro extends Controller{
         http_response_code(404);
         exit();
     }
+
+
+   function prueba(){
+       echo "estamos en prueba ";
+   }
+
 }
 
 ?>
