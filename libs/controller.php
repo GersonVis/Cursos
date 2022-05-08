@@ -14,7 +14,7 @@
            }
        }
        function CargarModelo($modelo){
-           $url = "models/$modelo"."Modelo.php";
+           $url = "models/".ucfirst($modelo)."Modelo.php";
            if(file_exists($url)){
                require_once $url;
                $modelo=$modelo.'Modelo';
