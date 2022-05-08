@@ -18,7 +18,7 @@ class SessionModelo extends Model
       $informacion = $this->bd->tiposDeDatoConsulta($conexion, $sqlConsulta);
 
 
-      
+
       unset($informacion[0]['id']);
       $columnasConEnlaces = $this->columnasTipo();
       $conexion = $this->bd->conectar();
@@ -87,9 +87,9 @@ class SessionModelo extends Model
     {
         $sqlConsulta = "select * from usuario where usuario.nombre='$usuario' and usuario.clave='$clave';";
         $conexion = $this->bd->conectar();
-        echo "asiendo consulta";
+      /*  echo "asiendo consulta";
         echo var_dump($conexion);
-        echo "fin consulta";
+        echo "fin consulta";*/
         $consulta = $this->bd->tiposDeDatoConsulta($conexion, $sqlConsulta);
        
 
