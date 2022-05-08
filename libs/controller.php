@@ -6,12 +6,12 @@
            $this->view=new View();
            session_start();
           // echo var_dump($_SESSION);
-           if($check){
+         /*  if($check){
             if(!isset($_SESSION['nombre']) || !isset($_SESSION['clave']) || !isset($_SESSION['idRol'])){
                header('location: /session');
                exit();
             } 
-           }
+           }*/
        }
        function CargarModelo($modelo){
            $url = "models/$modelo"."Modelo.php";
