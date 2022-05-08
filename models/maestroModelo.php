@@ -38,16 +38,19 @@ class maestroModelo extends Model
 
   function todos()
   {
-    echo "estamos dentro de totos{ maestroNodelo/todos }";
+   /* echo "estamos dentro de totos{ maestroNodelo/todos }";
     echo "asiendo conexion";
     echo "asiendo conexion";
     echo var_dump($this->bd);
-    echo "final valor de bd";
+    echo "final valor de bd";*/
     $conexion = $this->bd->conectar();
-    echo var_dump($conexion);
-    echo "fin conexion";
-    $sqlConsulta = "select * from $this->tablaPrincipal";
+   // echo var_dump($conexion);
+    //echo "fin conexion";
+    $sqlConsulta = "select * from maestro";
     $informacion = $this->bd->tiposDeDatoConsulta($conexion, $sqlConsulta);
+    echo "<br></br>";
+    echo var_dump($informacion);
+     echo "fin informacion conexion";
     return $informacion;
   }
 

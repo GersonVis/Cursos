@@ -14,14 +14,14 @@
            }*/
        }
        function CargarModelo($modelo){
-        echo "estamos en prueba ";
+     /*   echo "estamos en prueba ";
         echo var_dump($_POST);
         if(file_exists($_POST['ruta'])){
           echo "el arhcivo existe";
         }else{
             echo "el archivo no existe";
         }
-        
+        */
 
 
            $url = "models/$modelo"."Modelo.php";
@@ -29,7 +29,7 @@
                require_once $url;
                $modelo=$modelo.'Modelo';
                $this->modelo=new $modelo();
-               echo var_dump($modelo);
+              // echo var_dump($modelo);
            }
        }
        function Renderizar($vista){

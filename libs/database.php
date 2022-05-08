@@ -21,7 +21,7 @@ class Database
       exit();
       return '';
     }
-    echo "conexion:";
+    echo "conexion: ";
     echo var_dump($conexion);
     echo "fin conexion";
     return $conexion;

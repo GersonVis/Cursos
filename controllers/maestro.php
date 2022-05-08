@@ -18,9 +18,9 @@ class Maestro extends Controller{
         echo json_encode($datos);
     }
     function todos(){
-        echo "solicitar datos";
+     /*   echo "solicitar datos";
         echo var_dump($this->modelo);
-        echo "modelo metido";
+        echo "modelo metido";*/
         $datos = $this->modelo->todos();
         
         echo json_encode($datos);
