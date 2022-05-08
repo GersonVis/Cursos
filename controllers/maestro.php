@@ -10,7 +10,7 @@ class Maestro extends Controller{
     function Renderizar($vista){
        /* $this->view->instructores=$this->modelo->todos();
         $this->view->columnas=$this->modelo->columnas();*/
-        unset($this->view->columnas[0]);
+       // unset($this->view->columnas[0]);
         $this->view->Renderizar("$vista");
     }
     function informacionPorUrl($posicion){
