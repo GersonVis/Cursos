@@ -92,7 +92,7 @@ class SessionModelo extends Model
         echo var_dump($consulta);
         echo "fin usuario consultado";
         //  echo var_dump($consulta);
-        $retorno = array("nombre" => "", "clave" => "", "idEnlazado" => "", "grado" => "", "nuevo" => "");
+    /*    $retorno = array("nombre" => "", "clave" => "", "idEnlazado" => "", "grado" => "", "nuevo" => "");
         if (count($consulta) != 0) {
             $registroUsuario = $consulta[0];
 
@@ -103,7 +103,7 @@ class SessionModelo extends Model
 */
 
             // echo var_dump($registroUsuario);
-            if ($registroUsuario["idRol"]['valor'] == "3") {
+      /*      if ($registroUsuario["idRol"]['valor'] == "3") {
                 //si es maestro revisa la cuenta enlazada del maestro no solo del usuario
                 $sqlConsulta = "SELECT maestro.nombre, maestro.id FROM maestrocuenta inner join maestro ON maestrocuenta.idMaestro=maestro.id where maestrocuenta.idUsuario=$usuario;";
                 $consulta = $this->bd->tiposDeDatoConsulta($conexion, $sqlConsulta);
@@ -122,7 +122,7 @@ class SessionModelo extends Model
             $retorno["nuevo"] = $registroUsuario['primeraVez']['valor'];
             return $retorno;
         }
-        return false;
+        return false;*/
     }
     function maestro($id)
     {
