@@ -10,7 +10,7 @@
             if(!isset($_SESSION['nombre']) || !isset($_SESSION['clave']) || !isset($_SESSION['idRol'])){
                header('location: /session');
                exit();
-            } 
+            } mas
            }*/
        }
        function CargarModelo($modelo){
