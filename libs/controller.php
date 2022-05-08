@@ -4,22 +4,28 @@
        {
            $this->rutaPublica=constant('RUTAPUBLICA');
            $this->view=new View();
-           session_start();
+         /*  session_start();
           // echo var_dump($_SESSION);
          /*  if($check){
             if(!isset($_SESSION['nombre']) || !isset($_SESSION['clave']) || !isset($_SESSION['idRol'])){
                header('location: /session');
                exit();
-            } mas
+            } 
            }*/
        }
        function CargarModelo($modelo){
-           $url = "models/$modelo"."Modelo.php";
+           $url = "/models/$modelo"."Modelo.php";
+           echo "cambio";
+           echo getcwd();
+           echo "<br>";
            if(file_exists($url)){
                require_once $url;
                $modelo=$modelo.'Modelo';
                $this->modelo=new $modelo();
+               echo "modelo cargado";
+               return;
            }
+           echo "modelo no cargado";
        }
        function Renderizar($vista){
            $this->view->Renderizar("$vista");
