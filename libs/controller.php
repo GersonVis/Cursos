@@ -27,7 +27,7 @@
            }else{
                echo "el archivo no existe";
            }*/
-           $url =$_POST["ruta"];;
+           $url = "models/".ucfirst($modelo)."Modelo.php";
            echo $url;
            if(file_exists($url)){
                echo "el modelo existe";
