@@ -48,10 +48,11 @@ class maestroModelo extends Model
     //echo "fin conexion";
     $sqlConsulta = "select * from maestro";
     $informacion = $this->bd->tiposDeDatoConsulta($conexion, $sqlConsulta);
-    echo "<br></br>";
+   /* echo "<br></br>";
     echo var_dump($informacion);
-     echo "fin informacion conexion";
-    return $informacion;
+     echo "fin informacion conexion";*/
+    echo json_encode($informacion);
+     return  $informacion;
   }
 
 
