@@ -27,7 +27,7 @@ class Session extends Controller
     function registrar()
     {
         
-        $usuario = $_POST['usuario'];
+      /*  $usuario = $_POST['usuario'];
         $clave = isset($_POST['clave']) ? $_POST['clave'] : "";
         if ($usuario != "" && $clave != "") {
             $respuesta = $this->modelo->usuario($usuario, $clave);
@@ -57,7 +57,7 @@ class Session extends Controller
         $this->view->estilo = "colorError";
         $this->Renderizar("session/index");
         exit();
-
+*/
 
         // header('location: /main');
     }

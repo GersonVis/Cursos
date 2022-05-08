@@ -19,6 +19,7 @@
                require_once $url;
                $modelo=$modelo.'Modelo';
                $this->modelo=new $modelo();
+               echo var_dump($this->modelo);
            }
        }
        function Renderizar($vista){
