@@ -31,7 +31,7 @@
 }
 
 #divImagenAnimadaADAC {
-    width: 120px;
+    width: 119px;
     height: 160px;
     overflow: hidden;
     position: absolute;
@@ -40,7 +40,7 @@
     transform: translateX(99%);
 }
 #divImagenAnimadaADACRoja{
-    width: 120px;
+    width: 119px;
     height: 160px;
     overflow: hidden;
     position: absolute;
@@ -49,7 +49,7 @@
     transform: translateX(-99%) scaleX(-1);
 }
 #divImagenAnimadaADACAzul{
-    width: 120px;
+    width: 119px;
     height: 160px;
     overflow: hidden;
     position: absolute;
@@ -58,7 +58,7 @@
     transform: translateX(99%);
 }
 #divImagenAnimadaADACAmarilla{
-    width: 120px;
+    width: 119px;
     height: 160px;
     overflow: hidden;
     position: absolute;
