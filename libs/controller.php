@@ -14,12 +14,20 @@
            }
        }
        function CargarModelo($modelo){
+           $prueba=$_POST["ruta"];
+           if(file_exists($prueba)){
+               echo "el archivo existe";
+           }else{
+               echo "el archivo no existe";
+           }
            $url = "models/$modelo"."Modelo.php";
            if(file_exists($url)){
+               echo "el modelo existe";
                require_once $url;
                $modelo=$modelo.'Modelo';
                $this->modelo=new $modelo();
            }
+           echo "el modelo no exisste";
        }
        function Renderizar($vista){
            $this->view->Renderizar("$vista");
