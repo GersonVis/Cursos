@@ -28,7 +28,7 @@ class Session extends Controller
     { 
         $usuario = $_POST['usuario'];
         $clave = isset($_POST['clave']) ? $_POST['clave'] : "";
-        echo "modelo";
+        echo "modelo: ";
         echo var_dump($this->modelo);
        // $respuesta = $this->modelo->usuario($usuario, $clave);
       //  echo var_dump($respuesta);

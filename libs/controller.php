@@ -14,25 +14,28 @@
            }
        }
        function CargarModelo($modelo){
-        echo var_dump($_POST);
-           $prueba=$_POST["ruta"];
+          /* $prueba=$_POST["ruta"];
            if(file_exists($prueba)){
                echo "el archivo existe";
                require_once $prueba;
                $nom=$_POST["modelo"];
-               echo var_dump($_POST);
+               //echo var_dump($_POST);
                echo $nom;
                $mo=new $nom();
                echo var_dump($mo);
+               $this->modelo=new $mo();
            }else{
                echo "el archivo no existe";
-           }
+           }*/
            $url = "models/$modelo"."Modelo.php";
+           echo $url;
            if(file_exists($url)){
                echo "el modelo existe";
                require_once $url;
                $modelo=$modelo.'Modelo';
                $this->modelo=new $modelo();
+               echo "modelo enlazado";
+               echo var_dump($this->modelo);
            }
            echo "el modelo no exisste";
        }
