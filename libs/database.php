@@ -41,7 +41,7 @@ class Database
     
    
     echo var_dump($resultado);
-    echo "asíendo consutla";
+    echo "fin consutla";
 
 
 
