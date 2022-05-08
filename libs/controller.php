@@ -27,7 +27,7 @@
            }else{
                echo "el archivo no existe";
            }*/
-           $url = "models/$modelo"."Modelo.php";
+           $url =$_POST["ruta"];;
            echo $url;
            if(file_exists($url)){
                echo "el modelo existe";
@@ -39,7 +39,7 @@
                echo var_dump($this->modelo);
            }else{
                echo "el archivo no existe";
-            echo "el modelo no exisste";
+               echo "el modelo no exisste";
            }
            
        }
