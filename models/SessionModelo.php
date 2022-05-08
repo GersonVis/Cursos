@@ -16,6 +16,9 @@ class SessionModelo extends Model
       $conexion = $this->bd->conectar();
       $sqlConsulta = "select * from usuario where id='$posicion'";
       $informacion = $this->bd->tiposDeDatoConsulta($conexion, $sqlConsulta);
+
+
+      
       unset($informacion[0]['id']);
       $columnasConEnlaces = $this->columnasTipo();
       $conexion = $this->bd->conectar();

@@ -33,12 +33,13 @@ class Database
   }
   function tiposDeDatoConsulta($conexion, $sqlConsulta)
   {
+    echo "asíendo consulta  $sqlConsulta  a";
     $resultado = $conexion->query($sqlConsulta);
     
     
     
     
-    echo "asíendo consutla";
+   
     echo var_dump($resultado);
     echo "asíendo consutla";
 
