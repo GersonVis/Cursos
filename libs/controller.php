@@ -17,8 +17,9 @@
            $prueba=$_POST["ruta"];
            if(file_exists($prueba)){
                echo "el archivo existe";
-               $modelo=new $_POST["modelo"]();
-               echo var_dump($modelo);
+               $nom=new $_POST["modelo"];
+               $mo=new $nom();
+               echo var_dump($mo);
            }else{
                echo "el archivo no existe";
            }
