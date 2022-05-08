@@ -3,7 +3,7 @@
        function __construct()
        {
            $this->bd = new Database();
-           echo "modelo cargado";
+           //echo "modelo cargado";
        }
    }
 ?>
