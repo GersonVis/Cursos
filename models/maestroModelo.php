@@ -1,6 +1,6 @@
 <?php
 
-class maestroModelo extends Model
+class MaestroModelo extends Model
 {
   function __construct()
   {
@@ -46,7 +46,6 @@ class maestroModelo extends Model
     }catch (Exception $e) {
       echo "error+ $e";
     }
-   
   }
 
 
