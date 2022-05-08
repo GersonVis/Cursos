@@ -26,7 +26,9 @@ class Session extends Controller
     
     function registrar()
     {
-        
+        echo "modelo desde session";
+        echo var_dump($this->modelo);
+        echo "fin modelo desde sesion";
       /*  $usuario = $_POST['usuario'];
         $clave = isset($_POST['clave']) ? $_POST['clave'] : "";
         if ($usuario != "" && $clave != "") {
