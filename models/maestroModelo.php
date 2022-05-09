@@ -298,6 +298,7 @@ class MaestroModelo extends Model
     $aumento = 1;
     while ($contador != 0) {
       //  echo $sqlConsulta;
+      echo json_encode($informacion)==""?" vacío ":" no esta vacio ";
       echo json_encode($informacion);
       echo "select * from carrera limit $aumento, 1";
       $sqlConsulta = "select * from carrera limit $aumento, 1";
