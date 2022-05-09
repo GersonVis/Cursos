@@ -45,7 +45,14 @@ document.addEventListener("DOMContentLoaded", function () {//se crea la interfaz
             })
         }
     )
-    solicitarDatosJSON(urlEnlace + "/todos", "")
+    let posicionRegistro=1;
+    while( posicionRegistro!=0){
+
+    }
+    fetch(urlEnlace + "/todos",{
+        method:"post",
+        body
+    })
         .then(datosJSON => {
 
             datosJSON.forEach(datos => {
@@ -59,6 +66,7 @@ document.addEventListener("DOMContentLoaded", function () {//se crea la interfaz
             //  parteFormularioInstructores.appendChild(interfazInstructor())
         })
 })
+
 function crearInputOpciones(etiqueta, valor) {
     let opciones, opcionesHTMl=""
     let elemento = document.createElement("li")

@@ -282,9 +282,9 @@ class MaestroModelo extends Model
     }
     return true;
   }
-  function carreras($limite)
+  function carreras($posicion)
   {
-    $sqlConsulta = "select * from carrera limit $limite, 1";
+    $sqlConsulta = "select * from carrera limit $posicion, 1";
     $conexion = $this->bd->conectar();
     $informacion = $this->bd->tiposDeDatoConsulta($conexion, $sqlConsulta);
 

@@ -2,11 +2,11 @@
 //que es un select que tiene como opciones los profesores divididos por carrrera
 
 window.addEventListener("load", function(){
-    fetch("maestro/carreras")
+   /* fetch("maestro/carreras")
    /* .then(r=>{
         console.log(r.text())
     })*/
-    .then(respuesta=>respuesta.json())
+  /*  .then(respuesta=>respuesta.json())
     .then(jsonInformacion=>{
                 let opciones={}
                 jsonInformacion.forEach(datos=>{
@@ -24,8 +24,56 @@ window.addEventListener("load", function(){
     .catch(e=>{
         console.error(e)
         alert("Erorr: " +e)
-    })
+    })*/
+    let carreras=[]
+    recorrerSolicitud(0, function(jsonInformacion){
+        let opciones={}
+        jsonInformacion.forEach(datos=>{
+            let opcion=document.createElement('option')
+            let id=datos.id.valor
+            let valor=datos.nombreCarrera.valor
+            opciones[id]=opcion
+            opcion.value=id
+            opcion.innerText=valor
+            listaSecciones.appendChild(opcion)
+        })
+    },  carreras)
 })
+
+var datosRecividos=[];
+var registro=""
+function recorrerSolicitud(posicion, funcionHacer, guardarDatos){
+    let data=new FormData()
+    data.append("posicion", posicion)
+    fetch( "maestro/carreras", {
+        method: "POST",
+        body: data
+    })
+    .then(respuesta=>respuesta.text())
+    .then(texto=>{
+        console.log(texto)
+        if(texto!=""){
+            guardarDatos.push(JSON.parse(texto.substring(1, texto.length-1)))
+            recorrerSolicitud(posicion+1, funcionHacer, guardarDatos)
+        }else{
+            //datosRecividos=datosRecividos.substring(0, datosRecividos.length-1)
+            console.log(guardarDatos)
+            funcionHacer(guardarDatos)
+        }
+        
+       /* infoJSON=JSON.parse(texto)
+        datosRecividos+=texto
+        console.log(infoJSON, Object.keys(infoJSON));
+        recorrerSolicitud(Object.keys(infoJSON), posicion+1);*/
+    })
+    .catch(error=>{
+        console.log("error", error)
+    })
+   
+  
+}
+
+
 
 listaSecciones.addEventListener("change", function(){
     mostrarPorCategoria(listaSecciones.value)
