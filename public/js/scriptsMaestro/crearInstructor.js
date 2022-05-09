@@ -1,13 +1,13 @@
 
 
-crearInstructor.addEventListener('click', function () {
+/*crearInstructor.addEventListener('click', function () {
    mostrarElemento(sectionCrearInstructor)
    
-})
+})*//*
 botonCerrarCrear.addEventListener('click', function(){
     ocultarElemento(sectionCrearInstructor)
 })
-
+*/
 /*botonCrear.addEventListener('click', function (){
     enviarFormulario("crearinstructor", "instructor creado correctamente", "no se pudo crear instructor")
     .then(respuesta=>{
