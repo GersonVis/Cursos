@@ -38,14 +38,11 @@ class MaestroModelo extends Model
 
   function todos()
   {
-    try{
+
       $conexion = $this->bd->conectar();
       $sqlConsulta = "select * from $this->tablaPrincipal limit 10";
       $informacion = $this->bd->tiposDeDatoConsulta($conexion, $sqlConsulta);
       return $informacion;
-    }catch (Exception $e) {
-      echo "error+ $e";
-    }
   }
 
 
