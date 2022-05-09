@@ -270,7 +270,7 @@ class MaestroModelo extends Model
     $contador=count($informacion);
     $aumento=1;
     while ($contador!=0 ){
-      echo json_encode($informacion);
+     // echo json_encode($informacion);
       $sqlConsulta = "select * from maestro limit $aumento, 1";
       $informacion = $this->bd->tiposDeDatoConsulta($conexion, $sqlConsulta);
       $contador=count($informacion);
