@@ -23,7 +23,7 @@ class Maestro extends Controller{
         $datos = $this->modelo->todos();
         //echo var_dump($datos);
         //echo json_encode(array("e"=>"momom"));
-        echo json_encode($datos);
+       // echo json_encode($datos);
     }
     function eliminar()
     {
