@@ -15,12 +15,12 @@
        }
        function CargarModelo($modelo){
            $url = "models/".$modelo."Modelo.php";
-         //  echo "url modelo $url";
+           echo "url modelo $url";
            if(file_exists($url)){
                require_once $url;
                $modelo=ucfirst($modelo).'Modelo';
                $this->modelo=new $modelo();
-              // echo var_dump($this->modelo);
+               echo var_dump($this->modelo);
            }
        }
        function Renderizar($vista){
