@@ -36,9 +36,14 @@ class MaestroModelo extends Model
     return $informacion;
   }
 
-  function todos()
+  function todos($posicion)
   {
 
+    $sqlConsulta = "select * from carrera limit $posicion, 1";
+    $conexion = $this->bd->conectar();
+    $informacion = $this->bd->tiposDeDatoConsulta($conexion, $sqlConsulta);
+
+    return $informacion;
     /* $conexion = $this->bd->conectar();
       $sqlConsulta = "select * from maestro limit 1";
       $informacion = $this->bd->tiposDeDatoConsulta($conexion, $sqlConsulta);
@@ -46,7 +51,7 @@ class MaestroModelo extends Model
      // echo var_dump($informacion);
       return $informacion;*/
 
-    $sqlConsulta = "select * from carrera limit 0, 1;";
+ /*   $sqlConsulta = "select * from carrera limit 0, 1;";
     $conexion = $this->bd->conectar();
     $informacion = $this->bd->tiposDeDatoConsulta($conexion, $sqlConsulta);
     //echo json_encode(array(array("prueba"=>array("nuevo"=>"prueba")), array("prueba"=>array("nuevo"=>"prueba"))));
@@ -66,7 +71,7 @@ class MaestroModelo extends Model
     $cadena = substr($cadena, 0, -1);
     $cadena .= "]";
     echo $cadena;
-    return array("" => "");
+    return array("" => "");*/
   }
 
 

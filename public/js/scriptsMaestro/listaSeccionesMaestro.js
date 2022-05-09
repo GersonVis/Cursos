@@ -26,7 +26,7 @@ window.addEventListener("load", function () {
           alert("Erorr: " +e)
       })*/
     let carreras = []
-    recorrerSolicitud(0, function (jsonInformacion) {
+   /* recorrerSolicitud(0, function (jsonInformacion) {
         let opciones = {}
         jsonInformacion.forEach(datos => {
             let opcion = document.createElement('option')
@@ -37,7 +37,7 @@ window.addEventListener("load", function () {
             opcion.innerText = valor
             listaSecciones.appendChild(opcion)
         })
-    }, carreras)
+    }, carreras)*/
 })
 
 var datosRecividos = [];
