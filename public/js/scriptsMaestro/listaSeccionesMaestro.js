@@ -53,7 +53,11 @@ function recorrerSolicitud(posicion, funcionHacer, guardarDatos){
     .then(texto=>{
         console.log(texto)
         if(texto!=""){
-            guardarDatos.push(JSON.parse(texto.substring(1, texto.length-1)))
+            try {
+                guardarDatos.push(JSON.parse(texto.substring(1, texto.length-1)))
+            } catch (error) {
+                posicion=posicion-1
+            }
             recorrerSolicitud(posicion+1, funcionHacer, guardarDatos)
         }else{
             //datosRecividos=datosRecividos.substring(0, datosRecividos.length-1)
@@ -68,6 +72,7 @@ function recorrerSolicitud(posicion, funcionHacer, guardarDatos){
     })
     .catch(error=>{
         console.log("error", error)
+        posicion=posicion-1
     })
    
   
