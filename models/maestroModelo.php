@@ -46,7 +46,7 @@ class MaestroModelo extends Model
      // echo var_dump($informacion);
       return $informacion;*/
 
-    $sqlConsulta = "select * from carrera limit 0, 1;";
+    $sqlConsulta = "select * from maestro limit 0, 1;";
     $conexion = $this->bd->conectar();
     $informacion = $this->bd->tiposDeDatoConsulta($conexion, $sqlConsulta);
     //echo json_encode(array(array("prueba"=>array("nuevo"=>"prueba")), array("prueba"=>array("nuevo"=>"prueba"))));
@@ -56,12 +56,15 @@ class MaestroModelo extends Model
     while ($contador != 0) {
       $datosJSON = json_encode($informacion);
       $datosJSON = substr($datosJSON, 1, -1);
-      $cadena .= "$datosJSON,";
-      $sqlConsulta = "select * from carrera limit $aumento, 1";
+     
+      $sqlConsulta = "select * from maestro limit $aumento, 1";
       $informacion = $this->bd->tiposDeDatoConsulta($conexion, $sqlConsulta);
       $contador = count($informacion);
-
-      $aumento += 1;
+      if($datosJSON!=""){
+        $cadena .= "$datosJSON, ";
+        $aumento += 1;
+      }
+      
     }
     $cadena = substr($cadena, 0, -1);
     $cadena .= "]";
