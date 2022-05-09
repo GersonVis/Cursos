@@ -17,6 +17,7 @@
            $url = "models/".$modelo."Modelo.php";
            echo "url modelo $url";
            if(file_exists($url)){
+               echo "el archivo existe";
                require_once $url;
                $modelo=ucfirst($modelo).'Modelo';
                $this->modelo=new $modelo();
