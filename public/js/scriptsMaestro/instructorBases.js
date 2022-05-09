@@ -17,10 +17,15 @@ var idMaestro=0;
 //fin variables globales
 function metodoActualizarPanel(){
     contenedorOpcionesDirecto.innerHTML=""
-    solicitarDatosJSON(urlBase + "/todos")
+    fetch(urlBase + "/todos")
+    .then(res=>res.text())
+    .then(texto=>{
+        console.log(res)
+    })
+    /*solicitarDatosJSON(urlBase + "/todos")
         .then(datos => {
             actualizarPanel(datos, crearPrincipal)
-        })
+        })*/
 }
 
 function crearPrincipal(informacion){
