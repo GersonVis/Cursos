@@ -39,12 +39,34 @@ class MaestroModelo extends Model
   function todos()
   {
 
-      $conexion = $this->bd->conectar();
+     /* $conexion = $this->bd->conectar();
       $sqlConsulta = "select * from maestro limit 1";
       $informacion = $this->bd->tiposDeDatoConsulta($conexion, $sqlConsulta);
       //echo "informacion";
      // echo var_dump($informacion);
-      return $informacion;
+      return $informacion;*/
+
+    $sqlConsulta = "select * from carrera limit 0, 1;";
+    $conexion = $this->bd->conectar();
+    $informacion = $this->bd->tiposDeDatoConsulta($conexion, $sqlConsulta);
+    //echo json_encode(array(array("prueba"=>array("nuevo"=>"prueba")), array("prueba"=>array("nuevo"=>"prueba"))));
+    $contador=count($informacion);
+    $aumento=1;
+    $cadena="[";
+    while ($contador!=0 ){
+      $datosJSON= json_encode($informacion);
+      $datosJSON=substr($datosJSON, 1, -1);
+      $cadena.="$datosJSON,";
+      $sqlConsulta = "select * from carrera limit $aumento, 1";
+      $informacion = $this->bd->tiposDeDatoConsulta($conexion, $sqlConsulta);
+      $contador=count($informacion);
+      
+      $aumento+=1;
+    }
+    $cadena=substr($cadena, 0, -1);
+    $cadena.="]";
+    echo $cadena;
+    return array(""=>"");
   }
 
 
@@ -263,20 +285,26 @@ class MaestroModelo extends Model
   function carreras()
   {
    // echo var_dump($_POST);
-    $sqlConsulta = "select * from maestro limit 0, 1;";
+    $sqlConsulta = "select * from carrera limit 0, 1;";
     $conexion = $this->bd->conectar();
     $informacion = $this->bd->tiposDeDatoConsulta($conexion, $sqlConsulta);
-    echo json_encode(array("prueba"=>"j"));
+    //echo json_encode(array(array("prueba"=>array("nuevo"=>"prueba")), array("prueba"=>array("nuevo"=>"prueba"))));
     $contador=count($informacion);
     $aumento=1;
+    $cadena="[";
     while ($contador!=0 ){
-     // echo json_encode($informacion);
-      $sqlConsulta = "select * from maestro limit $aumento, 1";
+      $datosJSON= json_encode($informacion);
+      $datosJSON=substr($datosJSON, 1, -1);
+      $cadena.="$datosJSON,";
+      $sqlConsulta = "select * from carrera limit $aumento, 1";
       $informacion = $this->bd->tiposDeDatoConsulta($conexion, $sqlConsulta);
       $contador=count($informacion);
       
       $aumento+=1;
     }
+    $cadena=substr($cadena, 0, -1);
+    $cadena.="]";
+    echo $cadena;
     return array("nada"=>"");
   }
   
