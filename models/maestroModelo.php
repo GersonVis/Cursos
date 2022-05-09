@@ -294,13 +294,13 @@ class MaestroModelo extends Model
     $informacion = $this->bd->tiposDeDatoConsulta($conexion, $sqlConsulta);
     //echo json_encode(array(array("prueba"=>array("nuevo"=>"prueba")), array("prueba"=>array("nuevo"=>"prueba"))));
     $contador = count($informacion);
-    $aumento = 1;
+    $aumento = 0;
     $cadena = "[";
     while ($contador != 0) {
       $datosJSON = json_encode($informacion);
       $datosJSON = substr($datosJSON, 1, -1);
       $sqlConsulta = "select * from carrera limit $aumento, 1";
-      echo $sqlConsulta;
+    //  echo $sqlConsulta;
       if($sqlConsulta!=""){
         $cadena .= "$datosJSON, ";
       }
