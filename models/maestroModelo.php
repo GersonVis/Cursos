@@ -282,32 +282,13 @@ class MaestroModelo extends Model
     }
     return true;
   }
-  function carreras()
+  function carreras($limite)
   {
-    /* $sqlConsulta = "select * from carrera";
+    $sqlConsulta = "select * from carrera limit $limite, 1";
     $conexion = $this->bd->conectar();
     $informacion = $this->bd->tiposDeDatoConsulta($conexion, $sqlConsulta);
 
-    return $informacion;*/
-
-
-    $sqlConsulta = "select * from carrera limit 0, 1;";
-    $conexion = $this->bd->conectar();
-    $informacion = $this->bd->tiposDeDatoConsulta($conexion, $sqlConsulta);
-    $contador = count($informacion);
-    $aumento = 1;
-    $informacionJSON=json_encode($informacion);
-    while ($contador != 0) {//revisar si la respuesta no esta vacía
-      if($informacionJSON!=""){
-        echo $informacionJSON;
-        $informacionJSON="";
-        $aumento += 1;
-      }
-      $sqlConsulta = "select * from carrera limit $aumento, 1";
-      $informacion = $this->bd->tiposDeDatoConsulta($conexion, $sqlConsulta);
-      $contador = count($informacion);
-    }
-    return array("" => "");
+    return $informacion;
   }
 }
 
