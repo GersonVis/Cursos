@@ -21,6 +21,8 @@ class Maestro extends Controller{
        /* echo "estamos en maestro";
         echo var_dump($this->modelo);*/
         $datos = $this->modelo->todos();
+        echo var_dump($datos);
+        echo json_encode(array("e"=>"momom"));
         echo json_encode($datos);
     }
     function eliminar()
