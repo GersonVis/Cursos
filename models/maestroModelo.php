@@ -284,7 +284,7 @@ class MaestroModelo extends Model
   }
   function carreras()
   {
-   /* $sqlConsulta = "select * from carrera";
+    /* $sqlConsulta = "select * from carrera";
     $conexion = $this->bd->conectar();
     $informacion = $this->bd->tiposDeDatoConsulta($conexion, $sqlConsulta);
 
@@ -300,10 +300,8 @@ class MaestroModelo extends Model
       $datosJSON = json_encode($informacion);
       $datosJSON = substr($datosJSON, 1, -1);
       $sqlConsulta = "select * from carrera limit $aumento, 1";
-    //  echo $sqlConsulta;
-      if($sqlConsulta!=""){
-        $cadena .= "$datosJSON ";
-      }
+      //  echo $sqlConsulta;
+      $cadena .= "$datosJSON, ";
       $informacion = $this->bd->tiposDeDatoConsulta($conexion, $sqlConsulta);
       $contador = count($informacion);
 
