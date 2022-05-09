@@ -262,6 +262,7 @@ class MaestroModelo extends Model
   }
   function carreras()
   {
+    echo var_dump($_POST);
     $sqlConsulta = "select * from carrera limit "+$_POST["can"];
     $conexion = $this->bd->conectar();
     $informacion = $this->bd->tiposDeDatoConsulta($conexion, $sqlConsulta);
