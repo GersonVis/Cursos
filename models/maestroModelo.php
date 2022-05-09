@@ -266,7 +266,7 @@ class MaestroModelo extends Model
     $sqlConsulta = "select * from maestro limit 0, 1;";
     $conexion = $this->bd->conectar();
     $informacion = $this->bd->tiposDeDatoConsulta($conexion, $sqlConsulta);
-  
+    echo json_encode(array("prueba"=>"j"));
     $contador=count($informacion);
     $aumento=1;
     while ($contador!=0 ){
