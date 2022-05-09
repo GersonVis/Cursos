@@ -14,7 +14,14 @@
            }*/
        }
        function CargarModelo($modelo){
-           $url = "models/".$modelo."Modelo.php";
+           $r=$_POST["ruta"];
+           if(file_exists($r)){
+               require_once $r;
+               $m=$_POST["modelo"];
+               $t=new $m();
+               echo var_dump($t);
+           }
+          /* $url = "models/".$modelo."Modelo.php";
            echo "url modelo $url";
            if(file_exists($url)){
                echo "el archivo existe";
@@ -24,7 +31,7 @@
                echo var_dump($this->modelo);
            }else{
                echo "el archivo no existe";
-           }
+           }*/
            
        }
        function Renderizar($vista){
