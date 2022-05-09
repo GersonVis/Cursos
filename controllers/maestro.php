@@ -121,7 +121,7 @@ class Maestro extends Controller{
     function carreras(){
         $respuesta=$this->modelo->carreras();
         if($respuesta){
-            echo json_encode($respuesta);
+         //   echo json_encode($respuesta);
             exit();
         }
         json_encode(array("Error"=>"Ocurrio un errror"));

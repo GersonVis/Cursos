@@ -262,22 +262,22 @@ class MaestroModelo extends Model
   }
   function carreras()
   {
-    echo var_dump($_POST);
-    $sqlConsulta = "select * from carrera limit ".$_POST["can"];
+   // echo var_dump($_POST);
+    $sqlConsulta = "select * from maestro limit 0, 1;";
     $conexion = $this->bd->conectar();
     $informacion = $this->bd->tiposDeDatoConsulta($conexion, $sqlConsulta);
+  
     $contador=count($informacion);
-    $aumento=0;
-    $contenedorPadre=array();
-    $contenedorAnterior=array();
-    while ($contador!=0){
-      $sqlConsulta = "select * from carrera limit $aumento, 2";
+    $aumento=1;
+    while ($contador!=0 ){
+      echo json_encode($informacion);
+      echo "<br><br>";
+      $sqlConsulta = "select * from maestro limit $aumento, 1";
       $informacion = $this->bd->tiposDeDatoConsulta($conexion, $sqlConsulta);
-      $contenedorPadre=array_merge($contenedorAnterior, $informacion);
-      $contenedorAnterior=$informacion;
-      $aumento+=2;
+      $contador=count($informacion);
+      $aumento+=1;
     }
-    return $informacion;
+    return array("nada"=>"");
   }
   
 }
