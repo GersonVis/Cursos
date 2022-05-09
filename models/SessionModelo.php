@@ -12,7 +12,7 @@ class SessionModelo extends Model
       $informacion = $this->bd->tiposDeDatoConsulta($conexion, $sqlConsulta);
       unset($informacion[0]['id']);
       return $informacion;*/
-  
+   /* */
       $conexion = $this->bd->conectar();
       $sqlConsulta = "select * from usuario where id='$posicion'";
       $informacion = $this->bd->tiposDeDatoConsulta($conexion, $sqlConsulta);
