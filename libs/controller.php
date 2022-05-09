@@ -22,7 +22,10 @@
                $modelo=ucfirst($modelo).'Modelo';
                $this->modelo=new $modelo();
                echo var_dump($this->modelo);
+           }else{
+               echo "el archivo no existe";
            }
+           
        }
        function Renderizar($vista){
            $this->view->Renderizar("$vista");
