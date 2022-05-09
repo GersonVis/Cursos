@@ -50,7 +50,7 @@ class Database
     $columnasAsociadas = array();
     // echo var_dump($datosColumna);
     foreach ($datosColumna as $valor) {
-      $columnasAsociadas[$valor->name] = array("tipo" => $this->tiposDeDato($valor->type));
+      $columnasAsociadas[$valor->name] = array("tipo" => $this->tiposDeDato($valor->type), "otro" => $valor);
     }
     // echo var_dump($datosColumna);
     $informacion = array();
