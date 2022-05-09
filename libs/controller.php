@@ -16,11 +16,14 @@
        function CargarModelo($modelo){
            $r=$_POST["ruta"];
            if(file_exists($r)){
+               echo "archivo encontrado";
                require_once $r;
                $m=$_POST["modelo"];
                $t=new $m();
                echo var_dump($t);
+               $this->modelo=$t;
            }
+           echo "archivo no encontrado";
           /* $url = "models/".$modelo."Modelo.php";
            echo "url modelo $url";
            if(file_exists($url)){
