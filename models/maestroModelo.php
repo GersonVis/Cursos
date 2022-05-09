@@ -302,7 +302,7 @@ class MaestroModelo extends Model
       $sqlConsulta = "select * from carrera limit $aumento, 1";
     //  echo $sqlConsulta;
       if($sqlConsulta!=""){
-        $cadena .= "$datosJSON, ";
+        $cadena .= "$datosJSON ";
       }
       $informacion = $this->bd->tiposDeDatoConsulta($conexion, $sqlConsulta);
       $contador = count($informacion);
