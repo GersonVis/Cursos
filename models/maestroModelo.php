@@ -56,15 +56,11 @@ class MaestroModelo extends Model
     while ($contador != 0) {
       $datosJSON = json_encode($informacion);
       $datosJSON = substr($datosJSON, 1, -1);
-     
+      $cadena .= "$datosJSON, ";
       $sqlConsulta = "select * from maestro limit $aumento, 1";
       $informacion = $this->bd->tiposDeDatoConsulta($conexion, $sqlConsulta);
       $contador = count($informacion);
-      if($datosJSON!=""){
-        $cadena .= "$datosJSON, ";
-        $aumento += 1;
-      }
-      
+      $aumento += 1;
     }
     $cadena = substr($cadena, 0, -1);
     $cadena .= "]";
