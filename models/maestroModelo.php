@@ -266,7 +266,17 @@ class MaestroModelo extends Model
     $sqlConsulta = "select * from carrera limit ".$_POST["can"];
     $conexion = $this->bd->conectar();
     $informacion = $this->bd->tiposDeDatoConsulta($conexion, $sqlConsulta);
-     
+    $contador=count($informacion);
+    $aumento=0;
+    $contenedorPadre=array();
+    $contenedorAnterior=array();
+    while ($contador!=0){
+      $sqlConsulta = "select * from carrera limit $aumento, 2";
+      $informacion = $this->bd->tiposDeDatoConsulta($conexion, $sqlConsulta);
+      $contenedorPadre=array_merge($contenedorAnterior, $informacion);
+      $contenedorAnterior=$informacion;
+      $aumento+=2;
+    }
     return $informacion;
   }
   
