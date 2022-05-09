@@ -40,7 +40,7 @@ class MaestroModelo extends Model
   {
 
       $conexion = $this->bd->conectar();
-      $sqlConsulta = "select * from maestro limit 10";
+      $sqlConsulta = "select * from maestro limit 1";
       $informacion = $this->bd->tiposDeDatoConsulta($conexion, $sqlConsulta);
       //echo "informacion";
      // echo var_dump($informacion);
