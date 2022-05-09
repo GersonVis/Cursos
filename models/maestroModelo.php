@@ -296,15 +296,15 @@ class MaestroModelo extends Model
     $informacion = $this->bd->tiposDeDatoConsulta($conexion, $sqlConsulta);
     $contador = count($informacion);
     $aumento = 1;
-    while ($contador != 0) {
-      //  echo $sqlConsulta;
-      echo json_encode($informacion)==""?" vacío ":" no esta vacio ";
-      echo json_encode($informacion);
-      echo "select * from carrera limit $aumento, 1";
+    $informacionJSON=json_encode($informacion);
+    while ($contador != 0) {//revisar si la respuesta no esta vacía
+      if($informacionJSON!=""){
+        echo $informacionJSON;
+        $aumento += 1;
+      }
       $sqlConsulta = "select * from carrera limit $aumento, 1";
       $informacion = $this->bd->tiposDeDatoConsulta($conexion, $sqlConsulta);
       $contador = count($informacion);
-      $aumento += 1;
     }
     return array("" => "");
   }
