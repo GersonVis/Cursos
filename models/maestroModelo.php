@@ -300,6 +300,7 @@ class MaestroModelo extends Model
     while ($contador != 0) {//revisar si la respuesta no esta vacía
       if($informacionJSON!=""){
         echo $informacionJSON;
+        $informacionJSON="";
         $aumento += 1;
       }
       $sqlConsulta = "select * from carrera limit $aumento, 1";
