@@ -289,27 +289,22 @@ class MaestroModelo extends Model
     $informacion = $this->bd->tiposDeDatoConsulta($conexion, $sqlConsulta);
 
     return $informacion;*/
+
+
     $sqlConsulta = "select * from carrera limit 0, 1;";
     $conexion = $this->bd->conectar();
     $informacion = $this->bd->tiposDeDatoConsulta($conexion, $sqlConsulta);
-    //echo json_encode(array(array("prueba"=>array("nuevo"=>"prueba")), array("prueba"=>array("nuevo"=>"prueba"))));
     $contador = count($informacion);
     $aumento = 1;
-   // $cadena = "[";
     while ($contador != 0) {
-      $datosJSON = json_encode($informacion);
-      $datosJSON = substr($datosJSON, 1, -1);
-      $sqlConsulta = "select * from carrera limit $aumento, 1";
       //  echo $sqlConsulta;
       echo json_encode($informacion);
+      echo "select * from carrera limit $aumento, 1";
+      $sqlConsulta = "select * from carrera limit $aumento, 1";
       $informacion = $this->bd->tiposDeDatoConsulta($conexion, $sqlConsulta);
       $contador = count($informacion);
-
       $aumento += 1;
     }
-  // $cadena = substr($cadena, 0, -1);
-   // $cadena .= "]";
-   // echo $cadena;
     return array("" => "");
   }
 }
