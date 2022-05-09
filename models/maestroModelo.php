@@ -299,8 +299,11 @@ class MaestroModelo extends Model
     while ($contador != 0) {
       $datosJSON = json_encode($informacion);
       $datosJSON = substr($datosJSON, 1, -1);
-      $cadena .= "$datosJSON, ";
       $sqlConsulta = "select * from carrera limit $aumento, 1";
+      echo $sqlConsulta;
+      if($sqlConsulta!=""){
+        $cadena .= "$datosJSON, ";
+      }
       $informacion = $this->bd->tiposDeDatoConsulta($conexion, $sqlConsulta);
       $contador = count($informacion);
 
