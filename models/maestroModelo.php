@@ -39,12 +39,13 @@ class MaestroModelo extends Model
   function todos($posicion)
   {
 
-      $conexion = $this->bd->conectar();
+     /* $conexion = $this->bd->conectar();
       $sqlConsulta = "select * from maestro limit $posicion, 1";
       $informacion = $this->bd->tiposDeDatoConsulta($conexion, $sqlConsulta);
       //echo "informacion";
      // echo var_dump($informacion);
-      return $informacion;
+      return $informacion;*/
+      echo "todos";
   }
 
 
