@@ -51,3 +51,37 @@ mostrarPorCategoria=(categoria)=>{
         alert("Erro: "+e)
     })
 }
+
+function recorrerSolicitud(posicion, funcionHacer, guardarDatos){
+    let data=new FormData()
+    data.append("posicion", posicion)
+    fetch( "maestro/carreras", {
+        method: "POST",
+        body: data
+    })
+    .then(respuesta=>respuesta.text())
+    .then(texto=>{
+        console.log(texto)
+        if(texto!=""){
+            try {
+                guardarDatos.push(JSON.parse(texto.substring(1, texto.length-1)))
+            } catch (error) {
+                console.log("sucedio un error", error)
+            }
+            recorrerSolicitud(posicion+1, funcionHacer, guardarDatos)
+        }else{
+            //datosRecividos=datosRecividos.substring(0, datosRecividos.length-1)
+            console.log(guardarDatos)
+            funcionHacer(guardarDatos)
+        }
+        
+       /* infoJSON=JSON.parse(texto)
+        datosRecividos+=texto
+        console.log(infoJSON, Object.keys(infoJSON));
+        recorrerSolicitud(Object.keys(infoJSON), posicion+1);*/
+    })
+    .catch(error=>{
+        console.log("error", error)
+        posicion=posicion-1
+    })
+}
