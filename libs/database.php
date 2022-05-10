@@ -28,7 +28,7 @@ class Database
   }
   function consulta($conexion, $sqlConsulta)
   {
-    echo "consulta $sqlConsulta";
+ //   echo "consulta $sqlConsulta";
     $respuesta = $conexion->query($sqlConsulta);
     return $respuesta;
   }

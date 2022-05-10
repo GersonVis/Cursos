@@ -75,12 +75,12 @@ function recorrerSolicitud(posicion, ruta, funcionHacer, guardarDatos){
     })
     .then(respuesta=>respuesta.text())
     .then(texto=>{
-      /*  c=c+1
+        c=c+1
         console.log("Estamos ejecustando la peticion: "+c)
-        console.log(texto)*/
+        console.log(texto)
         if(texto!=""){
-            guardarDatos.push(JSON.parse(texto.substring(1, texto.length-1)))
-            recorrerSolicitud(posicion+1, funcionHacer, guardarDatos)
+           // guardarDatos.push(JSON.parse(texto.substring(1, texto.length-1)))
+         //   recorrerSolicitud(posicion+1, funcionHacer, guardarDatos)
         }else{
             console.log(guardarDatos)
             funcionHacer(guardarDatos)
