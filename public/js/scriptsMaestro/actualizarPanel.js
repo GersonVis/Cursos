@@ -1,7 +1,7 @@
 instructoresEnlace = {}
 
 document.addEventListener("DOMContentLoaded", function () {//se crea la interfaz para poder crear un curso o instructor
-   // metodoActualizarPanel()
+    // metodoActualizarPanel()
     individuoCrear.innerHTML = ""
     /*interfaz del formulario*/
     //  parteFormularioTexto = parteFormulario()
@@ -33,19 +33,19 @@ document.addEventListener("DOMContentLoaded", function () {//se crea la interfaz
     individuoCrear.appendChild(textoFormulario)
     individuoCrear.appendChild(parteFormularioInstructores)
     individuoCrear.appendChild(botonFormulario)
-    solicitarDatosJSON( "maestro/columnasTipo").then(
+  /*  solicitarDatosJSON("maestro/columnasTipo").then(
         datosJSON => {
-            delete(datosJSON.id)
+            delete (datosJSON.id)
             Object.entries(datosJSON).forEach(([etiqueta, valor]) => {
                 if (valor.tipo != "enlazada") {
                     formulario.appendChild(inputFormulario(etiqueta, valor.tipo))
-                }else{
+                } else {
                     formulario.appendChild(crearInputOpciones(etiqueta, valor))
                 }
             })
         }
-    )
-    solicitarDatosJSON(urlEnlace + "/todos", "")
+    )*/
+    /*solicitarDatosJSON(urlEnlace + "/todos", "")
         .then(datosJSON => {
 
             datosJSON.forEach(datos => {
@@ -57,18 +57,30 @@ document.addEventListener("DOMContentLoaded", function () {//se crea la interfaz
             })
             hacerPorCookie();
             //  parteFormularioInstructores.appendChild(interfazInstructor())
+        })*/
+
+    recorrerSolicitud(0, function (jsonInformacion) {
+        jsonInformacion.forEach(datos => {
+            ({ interfaz, botonEliminar } = interfazInstructorEnlace(datos, etiquetasRequeridas))
+            interfaz.addEventListener('click', function () {
+                clickOpcionEnlace(this)
+            })
+            dentroInstructores.appendChild(interfaz)
         })
+        hacerPorCookie();
+    }, datos = [])
+
 })
 function crearInputOpciones(etiqueta, valor) {
-    let opciones, opcionesHTMl=""
+    let opciones, opcionesHTMl = ""
     let elemento = document.createElement("li")
     elemento.classList.add("datoPanelIndividuo")
     elemento.classList.add("flexCentradoR")
-    opciones=valor.tablaEnlazada
-    
-    opciones.forEach((registro)=>{
-       opcionesHTMl+="<option value=\""+Object.values(registro)[0].valor+"\">"+Object.values(registro)[1].valor+"</option>"
-      })
+    opciones = valor.tablaEnlazada
+
+    opciones.forEach((registro) => {
+        opcionesHTMl += "<option value=\"" + Object.values(registro)[0].valor + "\">" + Object.values(registro)[1].valor + "</option>"
+    })
     elemento.innerHTML = `<p class="etiquetaDato">${etiqueta}</p>
       <div class="contenedorEditar colorCuarto redondearDos ocuparDisponible">
           <select name="${etiqueta}" class="textoIndividuo colorCuarto redondearDos " value="">
@@ -88,7 +100,7 @@ async function crearCurso(idFormulario) {
     })
     metodoActualizarPanel()
     console.log(respuesta.text())
-    if(respuesta.status=="200"){
+    if (respuesta.status == "200") {
         alert("Creado correctamente")
         return respuesta
     }
