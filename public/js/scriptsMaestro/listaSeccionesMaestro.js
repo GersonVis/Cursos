@@ -26,7 +26,7 @@ window.addEventListener("load", function(){
         alert("Erorr: " +e)
     })*/
 
-    recorrerSolicitud(0, function(jsonInformacion){
+    recorrerSolicitud(0,"/maestro/carreras", function(jsonInformacion){
         let opciones={}
         jsonInformacion.forEach(datos=>{
                     let opcion=document.createElement('option')
@@ -65,11 +65,11 @@ mostrarPorCategoria=(categoria)=>{
     })
 }
 var c=0
-function recorrerSolicitud(posicion, funcionHacer, guardarDatos){
+function recorrerSolicitud(posicion, ruta, funcionHacer, guardarDatos){
     let data=new FormData()
     data.append("posicion", posicion)
     console.log("Estamos ejecustando la peticion: "+c)
-    fetch( "/maestro/carreras", {
+    fetch( ruta, {
         method: "POST",
         body: data
     })
