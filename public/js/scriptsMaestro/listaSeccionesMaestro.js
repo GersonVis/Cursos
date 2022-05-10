@@ -78,13 +78,13 @@ function recorrerSolicitud(posicion, ruta, funcionHacer, guardarDatos){
         c=c+1
         console.log("Estamos ejecustando la peticion: "+c+ "respuesta "+texto+"  "+texto)
         console.log(texto)
-        if(texto!=""){
+      /*  if(texto!=""){
             guardarDatos.push(JSON.parse(texto.substring(1, texto.length-1)))
             recorrerSolicitud(posicion+1, funcionHacer, guardarDatos)
         }else{
             console.log(guardarDatos)
             funcionHacer(guardarDatos)
-        }
+        }*/
     })
     .catch(error=>{
         console.log("error", error)
