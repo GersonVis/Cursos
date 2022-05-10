@@ -68,7 +68,7 @@ var c=0
 function recorrerSolicitud(posicion, ruta, funcionHacer, guardarDatos){
     let data=new FormData()
     data.append("posicion", posicion)
-    console.log("Estamos ejecustando la peticion: "+c)
+    console.log("Estamos ejecustando la peticion: "+c+ " "+ ruta)
     fetch( ruta, {
         method: "POST",
         body: data
