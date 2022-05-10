@@ -120,7 +120,7 @@ class Maestro extends Controller{
     }
     function carreras(){
         $posicion=$_POST["posicion"];
-        $respuesta=$this->modelo->carreras();
+        $respuesta=$this->modelo->carreras($posicion);
         if($respuesta){
             echo json_encode($respuesta);
             exit();
