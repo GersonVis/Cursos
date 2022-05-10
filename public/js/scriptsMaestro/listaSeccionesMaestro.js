@@ -65,10 +65,11 @@ mostrarPorCategoria = (categoria) => {
         })
 }
 var c = 0
+
 function recorrerSolicitud(posicion, ruta, funcionHacer, guardarDatos) {
     let data = new FormData()
     data.append("posicion", posicion)
-    console.log("Estamos ejecustando la peticion: " + c + " " + ruta)
+    console.log("Estamos ejecustando la peticion: " + c + " la ruta es" + ruta)
     fetch(ruta, {
         method: "POST",
         body: data
