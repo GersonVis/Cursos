@@ -121,18 +121,11 @@ class Maestro extends Controller{
     function carreras(){
         $posicion=$_POST["posicion"];
         $respuesta=$this->modelo->carreras($posicion);
-        if($respuesta==""){
-            http_response_code(404);
-        }
-        if(count($respuesta)==0){
-            http_response_code(302);
-        }
         if($respuesta){
+            echo var_dump($respuesta);
             echo json_encode($respuesta);
             //exit();
         }
-       
-        //json_encode(array("Error"=>"Ocurrio un errror"));
         http_response_code(404);
         exit();
     }
