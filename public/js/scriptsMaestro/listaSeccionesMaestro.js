@@ -55,7 +55,7 @@ mostrarPorCategoria=(categoria)=>{
 function recorrerSolicitud(posicion, funcionHacer, guardarDatos){
     let data=new FormData()
     data.append("posicion", posicion)
-    fetch( "http://curso.local.com/maestro/carreras", {
+    fetch( "/maestro/carreras", {
         method: "POST",
         body: data
     })

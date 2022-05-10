@@ -129,7 +129,7 @@ class Maestro extends Controller{
         }
         if($respuesta){
             echo json_encode($respuesta);
-            exit();
+            //exit();
         }
        
         //json_encode(array("Error"=>"Ocurrio un errror"));
