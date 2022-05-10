@@ -123,7 +123,7 @@ class Maestro extends Controller{
         $respuesta=$this->modelo->carreras($posicion);
         if($respuesta){
             echo var_dump($respuesta);
-            echo json_encode($respuesta);
+            echo json_encode($respuesta, JSON_UNESCAPED_UNICODE);
             //exit();
         }
         http_response_code(404);
