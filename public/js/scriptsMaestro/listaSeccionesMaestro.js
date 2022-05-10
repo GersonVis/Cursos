@@ -2,11 +2,11 @@
 //que es un select que tiene como opciones los profesores divididos por carrrera
 
 window.addEventListener("load", function(){
-    fetch("maestro/carreras")
+    /*fetch("maestro/carreras")
    /* .then(r=>{
         console.log(r.text())
     })*/
-    .then(respuesta=>respuesta.json())
+   /* .then(respuesta=>respuesta.json())
     .then(jsonInformacion=>{
                 let opciones={}
                 jsonInformacion.forEach(datos=>{
@@ -24,7 +24,20 @@ window.addEventListener("load", function(){
     .catch(e=>{
         console.error(e)
         alert("Erorr: " +e)
-    })
+    })*/
+
+    recorrerSolicitud(0, function(jsonInformacion){
+        let opciones={}
+        jsonInformacion.forEach(datos=>{
+                    let opcion=document.createElement('option')
+                    let id=datos.id.valor
+                    let valor=datos.nombreCarrera.valor
+                    opciones[id]=opcion
+                    opcion.value=id
+                    opcion.innerText=valor
+                    listaSecciones.appendChild(opcion)
+                })
+    }, datos=[]) 
 })
 
 listaSecciones.addEventListener("change", function(){
@@ -55,15 +68,16 @@ var c=0
 function recorrerSolicitud(posicion, funcionHacer, guardarDatos){
     let data=new FormData()
     data.append("posicion", posicion)
+    console.log("Estamos ejecustando la peticion: "+c)
     fetch( "/maestro/carreras", {
         method: "POST",
         body: data
     })
     .then(respuesta=>respuesta.text())
     .then(texto=>{
-        c=c+1
+      /*  c=c+1
         console.log("Estamos ejecustando la peticion: "+c)
-        console.log(texto)
+        console.log(texto)*/
         if(texto!=""){
             guardarDatos.push(JSON.parse(texto.substring(1, texto.length-1)))
             recorrerSolicitud(posicion+1, funcionHacer, guardarDatos)
