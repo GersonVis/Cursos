@@ -51,7 +51,7 @@ mostrarPorCategoria=(categoria)=>{
         alert("Erro: "+e)
     })
 }
-
+var c=0
 function recorrerSolicitud(posicion, funcionHacer, guardarDatos){
     let data=new FormData()
     data.append("posicion", posicion)
@@ -61,20 +61,16 @@ function recorrerSolicitud(posicion, funcionHacer, guardarDatos){
     })
     .then(respuesta=>respuesta.text())
     .then(texto=>{
+        c=c+1
+        console.log("Estamos ejecustando la peticion: "+c)
         console.log(texto)
         if(texto!=""){
             guardarDatos.push(JSON.parse(texto.substring(1, texto.length-1)))
             recorrerSolicitud(posicion+1, funcionHacer, guardarDatos)
         }else{
-            //datosRecividos=datosRecividos.substring(0, datosRecividos.length-1)
             console.log(guardarDatos)
             funcionHacer(guardarDatos)
         }
-        
-       /* infoJSON=JSON.parse(texto)
-        datosRecividos+=texto
-        console.log(infoJSON, Object.keys(infoJSON));
-        recorrerSolicitud(Object.keys(infoJSON), posicion+1);*/
     })
     .catch(error=>{
         console.log("error", error)

@@ -124,7 +124,7 @@ class Maestro extends Controller{
         if($respuesta){
            // echo var_dump($respuesta);
             echo json_encode($respuesta, JSON_INVALID_UTF8_IGNORE);
-            //exit();
+            exit();
         }
         http_response_code(404);
         exit();
