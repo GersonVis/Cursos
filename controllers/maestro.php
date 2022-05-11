@@ -23,7 +23,7 @@ class Maestro extends Controller{
         $datos = $this->modelo->todos();
         //echo var_dump($datos);
         //echo json_encode(array("e"=>"momom"));
-        echo json_encode($datos);
+        echo json_encode($datos, JSON_INVALID_UTF8_IGNORE);
     }
     function eliminar()
     {
@@ -121,7 +121,7 @@ class Maestro extends Controller{
     function carreras(){
         $respuesta=$this->modelo->carreras();
         if($respuesta){
-            echo json_encode($respuesta);
+            echo json_encode($respuesta, JSON_INVALID_UTF8_IGNORE);
             exit();
         }
         json_encode(array("Error"=>"Ocurrio un errror"));
