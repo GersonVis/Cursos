@@ -29,7 +29,7 @@ class Maestro extends Controller{
         //echo json_encode($datos, JSON_INVALID_UTF8_IGNORE);
         $posicion=$_POST["posicion"];
         $respuesta=$this->modelo->todos($posicion);
-        if($respuesta){
+        if($respuesta && count($respuesta)!=0){
            // echo var_dump($respuesta);
             echo json_encode($respuesta, JSON_INVALID_UTF8_IGNORE);
             exit();
