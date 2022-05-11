@@ -60,14 +60,14 @@ document.addEventListener("DOMContentLoaded", function () {//se crea la interfaz
         })*/
 
     recorrerSolicitud(0, "maestro/todos", function (jsonInformacion) {
-       /* jsonInformacion.forEach(datos => {
+        jsonInformacion.forEach(datos => {
             ({ interfaz, botonEliminar } = interfazInstructorEnlace(datos, etiquetasRequeridas))
             interfaz.addEventListener('click', function () {
                 clickOpcionEnlace(this)
             })
             dentroInstructores.appendChild(interfaz)
         })
-        hacerPorCookie();*/
+        hacerPorCookie();
     }, datos = [])
 
 })
