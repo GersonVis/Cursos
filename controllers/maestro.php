@@ -15,15 +15,15 @@ class Maestro extends Controller{
     }
     function informacionPorUrl($posicion){
         $datos = $this->modelo->obtenerInformacion($posicion);
-        echo json_encode($datos);
+        echo $this->mostrarDatos($datos);
     }
     function todos(){
        /* echo "estamos en maestro";
         echo var_dump($this->modelo);*/
         $datos = $this->modelo->todos();
         //echo var_dump($datos);
-        //echo json_encode(array("e"=>"momom"));
-        echo json_encode($datos, JSON_INVALID_UTF8_IGNORE);
+        //echo $this->mostrarDatos(array("e"=>"momom"));
+        echo $this->mostrarDatos($datos, JSON_INVALID_UTF8_IGNORE);
     }
     function eliminar()
     {
@@ -45,7 +45,7 @@ class Maestro extends Controller{
     function columnasTipo()
     {
       $respuesta = $this->modelo->columnasTipo();
-      echo json_encode($respuesta);
+      echo $this->mostrarDatos($respuesta);
     }
     function crear(){
         $instructor=array();
@@ -87,13 +87,13 @@ class Maestro extends Controller{
         if(count($datos)!=0){
             $resultadoConsulta=$this->modelo->buscar($valor, $datos);
         }
-        echo json_encode($resultadoConsulta, JSON_INVALID_UTF8_IGNORE);
+        echo $this->mostrarDatos($resultadoConsulta, JSON_INVALID_UTF8_IGNORE);
     }
     function cursosEnlazados()
     {
         $idInstructor = $_POST['idInstructor'];
         $respuesta = $this->modelo->cursosEnlazados($idInstructor);
-        echo json_encode($respuesta);
+        echo $this->mostrarDatos($respuesta);
     }
     function desenlazar(){
         $idCurso=$_POST['idCurso'];
@@ -108,7 +108,7 @@ class Maestro extends Controller{
     {
         $idInstructor = $_POST['idInstructor'];
         $respuesta=$this->modelo->cursosDisponibles($idInstructor);
-        echo json_encode($respuesta);
+        echo $this->mostrarDatos($respuesta);
     }
     function enlazar()
     {
@@ -121,10 +121,10 @@ class Maestro extends Controller{
     function carreras(){
         $respuesta=$this->modelo->carreras();
         if($respuesta){
-            echo json_encode($respuesta, JSON_INVALID_UTF8_IGNORE);
+            echo $this->mostrarDatos($respuesta, JSON_INVALID_UTF8_IGNORE);
             exit();
         }
-        json_encode(array("Error"=>"Ocurrio un errror"));
+        $this->mostrarDatos(array("Error"=>"Ocurrio un errror"));
         http_response_code(404);
         exit();
     }

@@ -29,5 +29,8 @@
        function informacionPorUrl($posicion){
            echo "no existe la estraccion";
        }
+       function mostrarDatos($datos){
+           echo json_encode($datos, JSON_INVALID_UTF8_IGNORE);
+       }
    }
 ?>
