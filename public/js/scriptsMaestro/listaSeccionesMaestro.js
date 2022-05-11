@@ -25,7 +25,6 @@ window.addEventListener("load", function () {
          console.error(e)
          alert("Erorr: " +e)
      })*/
-    alert("evento lanzado")
     recorrerSolicitud(0, "/maestro/carreras", function (jsonInformacion) {
         let opciones = {}
         jsonInformacion.forEach(datos => {

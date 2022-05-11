@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", function () {//se crea la interfaz
             hacerPorCookie();
             //  parteFormularioInstructores.appendChild(interfazInstructor())
         })*/
-
+  
     recorrerSolicitud(0, "maestro/todos", function(datos){
         actualizarPanel(datos, crearPrincipal)
     } , datos = [])
