@@ -25,7 +25,7 @@ window.addEventListener("load", function () {
          console.error(e)
          alert("Erorr: " +e)
      })*/
-
+    alert("evento lanzado")
     recorrerSolicitud(0, "/maestro/carreras", function (jsonInformacion) {
         let opciones = {}
         jsonInformacion.forEach(datos => {
@@ -37,7 +37,7 @@ window.addEventListener("load", function () {
             opcion.innerText = valor
             listaSecciones.appendChild(opcion)
         })
-        mostrarPorCategoria(Object.keys(opciones)[0]||0) 
+        //mostrarPorCategoria(Object.keys(opciones)[0]||0) 
     }, datos = [])
 })
 
