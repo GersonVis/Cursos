@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {//se crea la interfaz
     individuoCrear.appendChild(textoFormulario)
     individuoCrear.appendChild(parteFormularioInstructores)
     individuoCrear.appendChild(botonFormulario)
-    solicitarDatosJSON( "maestro/columnasTipo").then(
+  /*  solicitarDatosJSON( "maestro/columnasTipo").then(
         datosJSON => {
             delete(datosJSON.id)
             Object.entries(datosJSON).forEach(([etiqueta, valor]) => {
@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", function () {//se crea la interfaz
             })
             hacerPorCookie();
             //  parteFormularioInstructores.appendChild(interfazInstructor())
-        })
+        })*/
 })
 function crearInputOpciones(etiqueta, valor) {
     let opciones, opcionesHTMl=""

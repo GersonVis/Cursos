@@ -87,7 +87,7 @@ class Maestro extends Controller{
         if(count($datos)!=0){
             $resultadoConsulta=$this->modelo->buscar($valor, $datos);
         }
-        echo json_encode($resultadoConsulta);
+        echo json_encode($resultadoConsulta, JSON_INVALID_UTF8_IGNORE);
     }
     function cursosEnlazados()
     {
