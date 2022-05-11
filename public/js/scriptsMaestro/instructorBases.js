@@ -1,6 +1,6 @@
 const urlBase="/maestro"//url a donde se harán todas las peticiones
 const urlEnlace="/curso"
-const etiquetasRequeridas=['id', 'nombre', 'rfc']
+const etiquetasRequeridas=['id', 'nombreCurso', 'nombreCurso']
 const identificardorEnlace="idsCursos"
 const identificadorPrincipal='idInstructor'
 const idEnlace="idCurso"

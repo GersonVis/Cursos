@@ -59,9 +59,9 @@ document.addEventListener("DOMContentLoaded", function () {//se crea la interfaz
             //  parteFormularioInstructores.appendChild(interfazInstructor())
         })*/
 
-    recorrerSolicitud(0, "maestro/todos", function (jsonInformacion) {
+    recorrerSolicitud(80, "maestro/todos", function (jsonInformacion) {
         jsonInformacion.forEach(datos => {
-            ({ interfaz, botonEliminar } = interfazInstructorEnlace(datos, etiquetasRequeridas))
+            ({ interfaz, botonEliminar } = interfazInstructorEnlace(datos, ['id', 'nombre', 'rfc']))
             interfaz.addEventListener('click', function () {
                 clickOpcionEnlace(this)
             })
