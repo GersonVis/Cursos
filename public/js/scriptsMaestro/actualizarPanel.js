@@ -59,9 +59,9 @@ document.addEventListener("DOMContentLoaded", function () {//se crea la interfaz
             //  parteFormularioInstructores.appendChild(interfazInstructor())
         })*/
   
-    recorrerSolicitud(0, "maestro/todos", function(datos){
+   /* recorrerSolicitud(0, "maestro/todos", function(datos){
         actualizarPanel(datos, crearPrincipal)
-    } , datos = [])
+    } , datos = [])*/
 
 })
 function crearInputOpciones(etiqueta, valor) {
