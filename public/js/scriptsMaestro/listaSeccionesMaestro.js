@@ -74,6 +74,7 @@ function recorrerSolicitud(posicion, ruta, funcionHacer, guardarDatos) {
         method: "POST",
         body: data
     })
+        
         .then(respuesta => respuesta.text())
         .then(texto => {
             c = c + 1

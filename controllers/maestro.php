@@ -20,13 +20,23 @@ class Maestro extends Controller{
     function todos(){
        /* echo "estamos en maestro";
         echo var_dump($this->modelo);*/
-        $posicion=$_POST["posicion"];
+       // $posicion=$_POST["posicion"];
         
-        $datos = $this->modelo->todos($posicion);
+      //  $datos = $this->modelo->todos($posicion);
        // echo var_dump($datos);
         //echo var_dump($datos);
         //echo json_encode(array("e"=>"momom"));
-        echo json_encode($datos, JSON_INVALID_UTF8_IGNORE);
+        //echo json_encode($datos, JSON_INVALID_UTF8_IGNORE);
+        $posicion=$_POST["posicion"];
+        $respuesta=$this->modelo->todos($posicion);
+        if($respuesta){
+           // echo var_dump($respuesta);
+            echo json_encode($respuesta, JSON_INVALID_UTF8_IGNORE);
+            exit();
+        }
+        http_response_code(404);
+        exit();
+    
     }
     function eliminar()
     {
