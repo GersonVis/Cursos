@@ -42,7 +42,7 @@ function agregarEvento(elementos, funcionAgregar, evento = "click") {
 async function solicitarPorId(id) {
     datos = await fetch(urlBase + "/" + id)
     //console.log(datos.text())
-    //datos.text()
+    datos.text()
     return datos.json()
 }
 async function actualizarInformacion(id) {
