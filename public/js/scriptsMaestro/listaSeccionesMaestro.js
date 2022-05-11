@@ -80,7 +80,11 @@ function recorrerSolicitud(posicion, ruta, funcionHacer, guardarDatos) {
             console.log("Estamos ejecustando la peticion: " + c + "respuesta " + ruta + " posicion" + "  " + texto)
             console.log(texto)
             if (texto != "") {
+                guardarDatos.push(JSON.parse(texto.substring(1, texto.length-1)))
                 recorrerSolicitud(posicion + 1, ruta, funcionHacer, guardarDatos)
+            }else{
+                console.log(guardarDatos)
+                funcionHacer(guardarDatos)
             }
 
             /*  if(texto!=""){
