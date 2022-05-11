@@ -26,7 +26,7 @@ window.addEventListener("load", function () {
          alert("Erorr: " +e)
      })*/
 
-    /*recorrerSolicitud(0, "/maestro/carreras", function (jsonInformacion) {
+    recorrerSolicitud(0, "/maestro/carreras", function (jsonInformacion) {
         let opciones = {}
         jsonInformacion.forEach(datos => {
             let opcion = document.createElement('option')
@@ -37,7 +37,8 @@ window.addEventListener("load", function () {
             opcion.innerText = valor
             listaSecciones.appendChild(opcion)
         })
-    }, datos = [])*/
+        mostrarPorCategoria(Object.keys(opciones)[0]||0) 
+    }, datos = [])
 })
 
 listaSecciones.addEventListener("change", function () {

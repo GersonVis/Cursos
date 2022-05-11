@@ -59,16 +59,9 @@ document.addEventListener("DOMContentLoaded", function () {//se crea la interfaz
             //  parteFormularioInstructores.appendChild(interfazInstructor())
         })*/
 
-    recorrerSolicitud(80, "maestro/todos", function (jsonInformacion) {
-        jsonInformacion.forEach(datos => {
-            ({ interfaz, botonEliminar } = interfazInstructorEnlace(datos, ['id', 'nombre', 'rfc']))
-            interfaz.addEventListener('click', function () {
-                clickOpcionEnlace(this)
-            })
-            dentroInstructores.appendChild(interfaz)
-        })
-        hacerPorCookie();
-    }, datos = [])
+    recorrerSolicitud(80, "maestro/todos", function(datos){
+        actualizarPanel(datos, crearPrincipal)
+    } , datos = [])
 
 })
 function crearInputOpciones(etiqueta, valor) {
