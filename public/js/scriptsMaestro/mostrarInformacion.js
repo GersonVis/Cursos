@@ -48,6 +48,7 @@ async function solicitarPorId(id) {
 async function actualizarInformacion(id) {
     listaDatosIndividuo.innerHTML = ""
     datos = await solicitarPorId(id)
+    console.log(datos)
     elementosCreados = []
     dato = datos[0]
     Object.entries(dato).forEach(([etiqueta, objeto]) => {
