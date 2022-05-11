@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", function () {//se crea la interfaz
             //  parteFormularioInstructores.appendChild(interfazInstructor())
         })*/
 
-    recorrerSolicitud(0, "maestro/todos", function (jsonInformacion) {
+   // recorrerSolicitud(0, "maestro/todos", function (jsonInformacion) {
        /* jsonInformacion.forEach(datos => {
             ({ interfaz, botonEliminar } = interfazInstructorEnlace(datos, etiquetasRequeridas))
             interfaz.addEventListener('click', function () {
@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", function () {//se crea la interfaz
             dentroInstructores.appendChild(interfaz)
         })
         hacerPorCookie();*/
-    }, datos = [])
+  //  }, datos = [])
 
 })
 function crearInputOpciones(etiqueta, valor) {
