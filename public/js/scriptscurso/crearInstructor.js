@@ -1,6 +1,6 @@
 
-
-crearInstructor.addEventListener('click', function () {
+botonCrearInstructor=document.getElementById("crearInstructor")
+botonCrearInstructor.addEventListener('click', function () {
    mostrarElemento(sectionCrearInstructor)
    
 })
