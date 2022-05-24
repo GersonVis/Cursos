@@ -252,10 +252,18 @@ class MaestroModelo extends Model
   function enlazar($idInstructor, $idsCursos)
   {
     $con = $this->bd->conectar();
-    echo var_dump($idsCursos);
+  //  echo var_dump($idsCursos);
     foreach ($idsCursos as $idCurso => $valor) {
       $resultado = $this->bd->consulta($con, "insert into $this->tablaEnlazada values(null, $idCurso, $idInstructor, \"noliberado\")");
-      echo $idInstructor;
+      if(gettype($resultado)!="boolean"){
+        if($resultado->error!=""){
+          echo $this->bd->codigosDeError($resultado->errno);
+        }
+      }else{
+        echo "Creado correctamente $idCurso";
+      }
+     
+      //echo $idInstructor;
       //printf("%s %s\n", $idInstructor, $idsInstructores);
     }
     return true;

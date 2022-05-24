@@ -58,8 +58,8 @@ class Database
       $itemFabricado = array();
       foreach ($item as $etiqueta => $valor) {
         $reasignar = array("valor" => $valor, "tipo" => $columnasAsociadas[$etiqueta]["tipo"]);
-        //$total = array_merge($reasignar, (array)$columnasAsociadas[$etiqueta]["otro"]);
-        $itemFabricado[$etiqueta] = $reasignar;
+        $total = array_merge($reasignar, (array)$columnasAsociadas[$etiqueta]["otro"]);
+        $itemFabricado[$etiqueta] = $total;
       }
       $informacion[] = $itemFabricado;
     }

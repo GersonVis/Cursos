@@ -1,7 +1,8 @@
 
-
-crearInstructor.addEventListener('click', function () {
-   mostrarElemento(sectionCrearInstructor)
+botonCrearInstructor=document.getElementById("crearInstructor")
+botonCrearInstructor.addEventListener('click', function () {
+   // alert("puulsado")
+    mostrarElemento(sectionCrearInstructor)
    
 })
 botonCerrarCrear.addEventListener('click', function(){
