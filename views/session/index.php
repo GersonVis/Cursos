@@ -34,7 +34,7 @@
             <div class="contenedorDAC parteA">
             </div>
             <div class="contenedorDAC parteB">
-                <h1>Bienvenido perro</h1>
+                <h1>Bienvenido</h1>
                 <p class="subtituloDAC"><?php echo $this->mensaje;?></p>
             </div>
             <form action="/session/registrar" method="post" class="contenedorDAC parteC">
